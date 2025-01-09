@@ -35,7 +35,7 @@ const Dashboard = () => {
           </p>
 
           <div className={styles.content__form_btnwrapper}>
-            <Link to={"/quiz-questions"}>
+            <Link to={"/quiz-page"}>
               <button
                 className={`${styles.primary_btn} ${styles.content__form_btn}`}
                 type="submit"
