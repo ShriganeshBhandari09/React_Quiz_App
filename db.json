@@ -1,0 +1,348 @@
+{
+  "users": [
+    {
+      "fullName": "Shriganesh",
+      "email": "shriganesh@gmail.com",
+      "password": "Aishu@2903",
+      "id": "a38e"
+    },
+    {
+      "fullName": "Madhusudan",
+      "email": "madhu@gmail.com",
+      "password": "Madhu@2903",
+      "id": "dfa1"
+    },
+    {
+      "fullName": "Pranali",
+      "email": "pranali@gmail.com",
+      "password": "Pranali@2903",
+      "id": "fccb"
+    },
+    {
+      "fullName": "Rahul",
+      "email": "rahul@gmail.com",
+      "password": "Rahul@2903",
+      "id": "be87"
+    },
+    {
+      "fullName": "Omkar",
+      "email": "omkar@gmail.com",
+      "password": "Omkar@2903",
+      "id": "014f"
+    },
+    {
+      "fullName": "Varun",
+      "email": "varun@gmail.com",
+      "password": "Varun@2903",
+      "id": "2db9"
+    },
+    {
+      "fullName": "Satyam",
+      "email": "satyam@gmail.com",
+      "password": "Satyam@2903",
+      "id": "8047"
+    },
+    {
+      "fullName": "Binit",
+      "email": "binit@gmail.com",
+      "password": "Binit@2903",
+      "id": "4a76"
+    },
+    {
+      "fullName": "Gaurav",
+      "email": "gaurav@gmail.com",
+      "password": "Gaurav@2903",
+      "id": "d2c7"
+    },
+    {
+      "fullName": "Anusha",
+      "email": "anusha@gmail.com",
+      "password": "Anusha@2903",
+      "id": "2828"
+    },
+    {
+      "id": "7ce7",
+      "fullName": "Aishwarya",
+      "email": "Aishu@gmail.com",
+      "password": "Aishu@2930"
+    },
+    {
+      "id": "2002",
+      "fullName": "Aishwarya",
+      "email": "Aishu@gmail.com",
+      "password": "Aishu@2930"
+    },
+    {
+      "id": "5747",
+      "fullName": "Aishwarya",
+      "email": "Aishu@gmail.com",
+      "password": "Aishu@2930"
+    },
+    {
+      "id": "2dba",
+      "fullName": "Aishwarya",
+      "email": "Aishu@gmail.com",
+      "password": "Aishu@2930"
+    },
+    {
+      "id": "3467",
+      "fullName": "Aishwarya",
+      "email": "Aishu@gmail.com",
+      "password": "Aishu@2930"
+    },
+    {
+      "id": "71ac",
+      "fullName": "Aishwarya",
+      "email": "Aishu@gmail.com",
+      "password": "Aishu@2930"
+    },
+    {
+      "id": "5c2e",
+      "fullName": "Aishwarya",
+      "email": "Aishu@gmail.com",
+      "password": "Aishu@2930"
+    },
+    {
+      "id": "66b4",
+      "fullName": "Aishwarya",
+      "email": "Aishu@gmail.com",
+      "password": "Aishu@2930"
+    },
+    {
+      "id": "3edf",
+      "fullName": "Aishwarya",
+      "email": "Aishu@gmail.com",
+      "password": "Aishu@2930"
+    },
+    {
+      "id": "9c48",
+      "fullName": "Aishwarya",
+      "email": "Aishu@gmail.com",
+      "password": "Aishu@2930"
+    },
+    {
+      "id": "b02d",
+      "fullName": "Aishwarya Bhandari",
+      "email": "aishu@gmail.com",
+      "password": "Aishu@2903"
+    },
+    {
+      "id": "eff1",
+      "fullName": "Shriganesh Bhandari",
+      "email": "shriganesh@gmail.com",
+      "password": "Aishu@2903"
+    },
+    {
+      "id": "f83e",
+      "fullName": "Ganesh Bhandari",
+      "email": "ganesh@gmail.com",
+      "password": "Aishu@2903"
+    },
+    {
+      "id": "4d58",
+      "fullName": "Shriganesh",
+      "email": "ganesh@gmail.com",
+      "password": "Aishu@2903"
+    },
+    {
+      "id": "34d8",
+      "fullName": "Shriganesh Bhandari",
+      "email": "shriganesh.bhandari693@gmail.com",
+      "password": "Aishu@2903"
+    },
+    {
+      "id": "992f",
+      "fullName": "Shriganesh Bhandari",
+      "email": "shriganesh.bhandari693@gmail.com",
+      "password": "Aishu@2903"
+    },
+    {
+      "id": "cb2f",
+      "fullName": "Shriganesh Bhandari",
+      "email": "shriganesh.bhandari693@gmail.com",
+      "password": "Aishu@2903"
+    }
+  ],
+  "questions": [
+    {
+      "question": "What does HTML stand for?",
+      "options": [
+        "HyperText Markup Language",
+        "Home Tool Markup Language",
+        "Hyperlink and Text Markup Language",
+        "HyperText Machine Language"
+      ],
+      "answer": "HyperText Markup Language",
+      "explanation": "HTML is the standard language used to create and structure web pages and applications."
+    },
+    {
+      "question": "Which tag is used to define a hyperlink in HTML?",
+      "options": ["<a>", "<link>", "<href>", "<url>"],
+      "answer": "<a>",
+      "explanation": "The <a> tag (anchor tag) is used to create hyperlinks in HTML, allowing navigation between pages."
+    },
+    {
+      "question": "What is the default file extension for HTML files?",
+      "options": [".html", ".htm", ".xml", ".doc"],
+      "answer": ".html",
+      "explanation": "HTML files commonly use the .html extension. The .htm extension is also supported but less frequently used."
+    },
+    {
+      "question": "What does CSS stand for?",
+      "options": [
+        "Creative Style Sheets",
+        "Cascading Style Sheets",
+        "Computer Style Sheets",
+        "Colorful Style Sheets"
+      ],
+      "answer": "Cascading Style Sheets",
+      "explanation": "CSS is used to style the layout and appearance of web pages, making them visually appealing."
+    },
+    {
+      "question": "Which property is used to change the background color of an element?",
+      "options": ["color", "background", "background-color", "bgcolor"],
+      "answer": "background-color",
+      "explanation": "The background-color property in CSS is used to set the background color of an HTML element."
+    },
+    {
+      "question": "How do you select an element with the ID 'header' in CSS?",
+      "options": ["#header", ".header", "header", "*header"],
+      "answer": "#header",
+      "explanation": "In CSS, IDs are selected using the '#' symbol followed by the ID name. For example, #header targets the element with the ID 'header'."
+    },
+    {
+      "question": "What is the difference between 'let' and 'var'?",
+      "options": [
+        "'let' is block-scoped, 'var' is function-scoped.",
+        "'var' is block-scoped, 'let' is function-scoped.",
+        "Both are function-scoped.",
+        "Both are block-scoped."
+      ],
+      "answer": "'let' is block-scoped, 'var' is function-scoped.",
+      "explanation": "'let' is confined to the block in which it is defined, while 'var' is scoped to the entire function."
+    },
+    {
+      "question": "What does 'JSON.stringify()' do in JavaScript?",
+      "options": [
+        "Parses a JSON string into a JavaScript object.",
+        "Converts a JavaScript object into a JSON string.",
+        "Converts a JavaScript array into a string.",
+        "None of the above."
+      ],
+      "answer": "Converts a JavaScript object into a JSON string.",
+      "explanation": "'JSON.stringify()' is used to convert JavaScript objects into JSON strings, which are often sent over APIs."
+    },
+    {
+      "question": "What is JSX in React?",
+      "options": [
+        "A syntax extension for JavaScript.",
+        "A type of CSS framework.",
+        "A template engine for React.",
+        "A database query language."
+      ],
+      "answer": "A syntax extension for JavaScript.",
+      "explanation": "JSX allows you to write HTML-like syntax in JavaScript files, making React component creation easier."
+    },
+    {
+      "question": "What is the purpose of the 'useEffect' hook in React?",
+      "options": [
+        "To create state in functional components.",
+        "To handle side effects like data fetching.",
+        "To optimize component rendering.",
+        "To handle props updates."
+      ],
+      "answer": "To handle side effects like data fetching.",
+      "explanation": "'useEffect' is used in React functional components to perform tasks such as data fetching, subscriptions, or manual DOM changes."
+    },
+    {
+      "question": "What does 'DOM' stand for in JavaScript?",
+      "options": [
+        "Document Object Model",
+        "Data Object Model",
+        "Document Oriented Module",
+        "Data Oriented Module"
+      ],
+      "answer": "Document Object Model",
+      "explanation": "The DOM is a programming interface that represents a webpage as a tree structure of objects."
+    },
+    {
+      "question": "What is the purpose of the 'key' prop in React lists?",
+      "options": [
+        "To uniquely identify a list item.",
+        "To style list items dynamically.",
+        "To create a reference to a DOM element.",
+        "To sort the list items automatically."
+      ],
+      "answer": "To uniquely identify a list item.",
+      "explanation": "The 'key' prop ensures React can efficiently update and render list items by uniquely identifying them."
+    },
+    {
+      "question": "Which method is used to fetch data in React?",
+      "options": ["fetch()", "getData()", "axios()", "requestData()"],
+      "answer": "fetch()",
+      "explanation": "'fetch()' is a built-in JavaScript function for making HTTP requests, commonly used for fetching data in React."
+    },
+    {
+      "question": "What does 'useState' in React do?",
+      "options": [
+        "Creates a state variable.",
+        "Handles side effects.",
+        "Renders components conditionally.",
+        "None of the above."
+      ],
+      "answer": "Creates a state variable.",
+      "explanation": "'useState' is a React Hook that lets you add state to functional components."
+    },
+    {
+      "question": "Which property is used to make text bold in CSS?",
+      "options": ["font-weight", "font-bold", "text-weight", "text-bold"],
+      "answer": "font-weight",
+      "explanation": "The 'font-weight' property in CSS is used to set the weight (or boldness) of the text."
+    },
+    {
+      "question": "What does the <meta> tag do in HTML?",
+      "options": [
+        "Defines metadata about the document.",
+        "Creates links to other pages.",
+        "Formats text in a specific way.",
+        "Defines styles for the page."
+      ],
+      "answer": "Defines metadata about the document.",
+      "explanation": "The <meta> tag provides information about the document, such as character encoding and viewport settings."
+    },
+    {
+      "question": "Which event is fired when a user presses a key on the keyboard in JavaScript?",
+      "options": ["onkeypress", "onkeydown", "onkeyup", "oninput"],
+      "answer": "onkeydown",
+      "explanation": "'onkeydown' is triggered when a key is pressed down, making it ideal for detecting key presses in real-time."
+    },
+    {
+      "question": "What does 'this' keyword refer to in JavaScript?",
+      "options": [
+        "The current object context.",
+        "The global object.",
+        "The parent object.",
+        "None of the above."
+      ],
+      "answer": "The current object context.",
+      "explanation": "'this' refers to the object that is currently executing the code. Its value depends on how the function is called."
+    },
+    {
+      "question": "What is the difference between 'state' and 'props' in React?",
+      "options": [
+        "'state' is managed within the component, 'props' are passed from parent to child.",
+        "'props' are managed within the component, 'state' is passed from parent to child.",
+        "Both 'state' and 'props' are read-only.",
+        "'state' is immutable, 'props' are mutable."
+      ],
+      "answer": "'state' is managed within the component, 'props' are passed from parent to child.",
+      "explanation": "'state' is local to the component and can be changed, whereas 'props' are passed from parent to child and are immutable."
+    },
+    {
+      "question": "Which of the following is NOT a valid JavaScript data type?",
+      "options": ["Undefined", "Boolean", "Number", "Element"],
+      "answer": "Element",
+      "explanation": "'Element' is not a JavaScript data type. The valid data types are String, Number, Boolean, Object, Undefined, Null, and Symbol."
+    }
+  ]
+}
