@@ -33,7 +33,7 @@ const Navbar = () => {
   return (
     <header className={styles.header}>
       <div className={styles.header__image_wrapper}>
-        {location.pathname === "/quiz-questions" ? (
+        {location.pathname === "/quiz-page" ? (
           <img
             className={styles.header__img}
             src="src/assets/quiz-logo.png"

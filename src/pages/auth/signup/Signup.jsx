@@ -41,9 +41,7 @@ const Signup = () => {
     const newUser = users.find((user) => user.email === email);
     if (newUser) {
       alert("Email is already registered");
-      setFullName("");
-      setEmail("");
-      setPassword("");
+      navigate("/signup");
       return;
     }
 
