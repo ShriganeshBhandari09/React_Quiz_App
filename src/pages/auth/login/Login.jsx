@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
-import styles from "../login.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { fetchUsersRequest } from "../../../store/users/userActions";
+import { assets } from "../../../assets/assets";
+import styles from "../login.module.css"
+
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -47,7 +49,7 @@ const Login = () => {
   return (
     <section className={`${styles.auth} ${styles.container}`}>
       <div className={`${styles.auth__img_wrapper}`}>
-        <img className={styles.auth__img} src="src/assets/login.svg" alt="" />
+        <img className={styles.auth__img} src={assets.login} alt="" />
       </div>
       <div className={styles.auth__form_container}>
         <div className={styles.auth__form_header}>

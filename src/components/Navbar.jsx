@@ -1,5 +1,5 @@
 import { Link, useLocation, useNavigate } from "react-router";
-import styles from "./Dashboard/dashboard.module.css";
+import styles from "../pages/dashboard/dashboard.module.css";
 import { useEffect, useState } from "react";
 
 const Navbar = () => {
