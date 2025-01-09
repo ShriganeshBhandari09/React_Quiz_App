@@ -3,9 +3,7 @@ import styles from "./Dashboard/dashboard.module.css";
 import { useEffect, useState } from "react";
 
 const Navbar = () => {
-  const [loggedInUser, setLoggedInUser] = useState(
-    JSON.parse(localStorage.getItem("loggedInUser")) || []
-  );
+  const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
   const [imgSrc, setImgSrc] = useState("src/assets/profile.svg");
   const navigate = useNavigate();
   const location = useLocation();
