@@ -17,6 +17,12 @@
       "fullName": "Vidya",
       "email": "vidya@gmail.com",
       "password": "Asihu@2903"
+    },
+    {
+      "id": "07e7",
+      "fullName": "Akshaya Bhandari",
+      "email": "akshaya@gmail.com",
+      "password": "vidya@2903"
     }
   ],
   "questions": [
@@ -33,23 +39,13 @@
     },
     {
       "question": "Which tag is used to define a hyperlink in HTML?",
-      "options": [
-        "<a>",
-        "<link>",
-        "<href>",
-        "<url>"
-      ],
+      "options": ["<a>", "<link>", "<href>", "<url>"],
       "answer": "<a>",
       "explanation": "The <a> tag (anchor tag) is used to create hyperlinks in HTML, allowing navigation between pages."
     },
     {
       "question": "What is the default file extension for HTML files?",
-      "options": [
-        ".html",
-        ".htm",
-        ".xml",
-        ".doc"
-      ],
+      "options": [".html", ".htm", ".xml", ".doc"],
       "answer": ".html",
       "explanation": "HTML files commonly use the .html extension. The .htm extension is also supported but less frequently used."
     },
@@ -66,23 +62,13 @@
     },
     {
       "question": "Which property is used to change the background color of an element?",
-      "options": [
-        "color",
-        "background",
-        "background-color",
-        "bgcolor"
-      ],
+      "options": ["color", "background", "background-color", "bgcolor"],
       "answer": "background-color",
       "explanation": "The background-color property in CSS is used to set the background color of an HTML element."
     },
     {
       "question": "How do you select an element with the ID 'header' in CSS?",
-      "options": [
-        "#header",
-        ".header",
-        "header",
-        "*header"
-      ],
+      "options": ["#header", ".header", "header", "*header"],
       "answer": "#header",
       "explanation": "In CSS, IDs are selected using the '#' symbol followed by the ID name. For example, #header targets the element with the ID 'header'."
     },
@@ -154,12 +140,7 @@
     },
     {
       "question": "Which method is used to fetch data in React?",
-      "options": [
-        "fetch()",
-        "getData()",
-        "axios()",
-        "requestData()"
-      ],
+      "options": ["fetch()", "getData()", "axios()", "requestData()"],
       "answer": "fetch()",
       "explanation": "'fetch()' is a built-in JavaScript function for making HTTP requests, commonly used for fetching data in React."
     },
@@ -176,12 +157,7 @@
     },
     {
       "question": "Which property is used to make text bold in CSS?",
-      "options": [
-        "font-weight",
-        "font-bold",
-        "text-weight",
-        "text-bold"
-      ],
+      "options": ["font-weight", "font-bold", "text-weight", "text-bold"],
       "answer": "font-weight",
       "explanation": "The 'font-weight' property in CSS is used to set the weight (or boldness) of the text."
     },
@@ -198,12 +174,7 @@
     },
     {
       "question": "Which event is fired when a user presses a key on the keyboard in JavaScript?",
-      "options": [
-        "onkeypress",
-        "onkeydown",
-        "onkeyup",
-        "oninput"
-      ],
+      "options": ["onkeypress", "onkeydown", "onkeyup", "oninput"],
       "answer": "onkeydown",
       "explanation": "'onkeydown' is triggered when a key is pressed down, making it ideal for detecting key presses in real-time."
     },
@@ -231,12 +202,7 @@
     },
     {
       "question": "Which of the following is NOT a valid JavaScript data type?",
-      "options": [
-        "Undefined",
-        "Boolean",
-        "Number",
-        "Element"
-      ],
+      "options": ["Undefined", "Boolean", "Number", "Element"],
       "answer": "Element",
       "explanation": "'Element' is not a JavaScript data type. The valid data types are String, Number, Boolean, Object, Undefined, Null, and Symbol."
     }

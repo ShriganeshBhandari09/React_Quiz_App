@@ -132,6 +132,10 @@ input[type="radio"] {
   display: none;
 }
 
+.input__container{
+  padding: 10px;
+}
+
 input[type="radio"] + label {
   cursor: pointer;
   padding: 10px 10px;
@@ -192,6 +196,13 @@ input[type="radio"] + label:hover {
 
 .container__score_section {
   display: none;
+}
+
+
+.display_question_answers_container{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .question_answer_container {
