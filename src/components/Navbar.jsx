@@ -16,14 +16,6 @@ const Navbar = () => {
     }
   };
 
-  const iconOnClick = () => {
-    let text =
-      "You’re taking a quiz! Are you sure you want to leave and lose your progress?";
-    if (confirm(text)) {
-      navigate("/dashboard");
-    }
-  };
-
   useEffect(() => {
     setImgSrc(
       `https://ui-avatars.com/api/?name=${loggedInUser[0].fullName}&background=F3BD00&color=000`
@@ -33,23 +25,13 @@ const Navbar = () => {
   return (
     <header className={styles.header}>
       <div className={styles.header__image_wrapper}>
-        {location.pathname === "/quiz-page" ? (
+        <Link to="/dashboard">
           <img
             className={styles.header__img}
             src="src/assets/quiz-logo.png"
             alt="logo"
-            onClick={iconOnClick}
-            style={{ cursor: "pointer" }}
           />
-        ) : (
-          <Link to="/dashboard">
-            <img
-              className={styles.header__img}
-              src="src/assets/quiz-logo.png"
-              alt="logo"
-            />
-          </Link>
-        )}
+        </Link>
       </div>
       <div className={styles.header__profileinfo}>
         <span className={styles.profile__name} id="profile-name">

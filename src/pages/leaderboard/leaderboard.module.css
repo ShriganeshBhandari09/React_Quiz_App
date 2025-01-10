@@ -1,0 +1,552 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* body{
+    height: 100vh;
+}
+header {
+  width: 100%;
+  height: 72px;
+  border-bottom: 1px solid rgba(203, 203, 203, 1);
+  background-color: rgba(245, 245, 245, 1);
+}
+
+
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.podium{
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+/* .crown{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.rank {
+  border-radius: 20px;
+  text-align: center;
+  font-size: 20px;
+  max-width: fit-content;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+
+.first {
+  background-color: rgba(243, 189, 0, 1);
+  padding: 20px;
+}
+
+.second {
+  background-color: rgba(244, 206, 74, 1);
+  padding: 20px;
+
+}
+
+.third {
+  background-color: rgba(247, 226, 150, 1);
+  padding: 20px;
+}
+
+.rank p{
+    font-size: 32px;
+} */
+
+body {
+  font-family: Inter;
+}
+
+header {
+  padding: 10px 12px;
+  border-bottom: 1px solid #cbcbcb;
+  background-color: #f5f5f5;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__img {
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile__name {
+  display: none;
+}
+
+.header__profileinfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.profile__logout_btn {
+  display: flex;
+  font-size: 16px;
+  padding: 8px;
+  font-weight: 500;
+  border: none;
+  background-color: #f3bd00;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.profile__img {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  gap: 40px;
+}
+
+.rank_display {
+  font-size: 34px;
+}
+
+.supporting_text,
+.rank_display {
+  text-align: center;
+}
+
+.podium {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: -50px;
+}
+.white {
+  display: inline;
+  top: 0px;
+}
+
+.rank_value {
+  position: relative;
+  top: 35px;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.score_container {
+  width: 90px;
+  padding-top: 50px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.rank_name {
+  font-size: 24px;
+}
+
+.score_heading {
+  font-size: 20px;
+}
+
+.score_container__first {
+  background-color: #f3bd00;
+  height: 552px;
+}
+
+.score_container__second {
+  background-color: #f4ce4a;
+  height: 492px;
+}
+
+.score_container__third {
+  background-color: #f7e296;
+  height: 485px;
+}
+
+.first {
+  position: relative;
+  bottom: 10px;
+}
+
+.second {
+  position: relative;
+  bottom: 10px;
+}
+
+.third {
+  position: relative;
+  top: 15px;
+}
+
+.users_photo {
+  position: relative;
+  top: 40px;
+  border-radius: 50%;
+  object-fit: fill;
+  width: 60px;
+  height: 60px;
+}
+
+.rank_name {
+  font-size: 16px;
+}
+
+.crown img {
+  position: relative;
+  top: 55px;
+  width: 50px;
+  height: 50px;
+}
+
+.curve_container {
+  width: 100%;
+  border-radius: 50% 50% 0% 0%/ 90px;
+  box-shadow: 0px -8px 40px 0px rgba(28, 28, 30, 0.1);
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  bottom: 350px;
+  max-height: fit-content;
+}
+
+.rank {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.rank_item {
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+  box-shadow: 0px 8px 16px 0px rgba(28, 28, 30, 0.1);
+  padding: 20px;
+}
+
+.other_ranks {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding-bottom: 40px;
+  width: 90%;
+  padding-top: 90px;
+}
+
+.first_rank {
+  border: 8px solid #f3bd00;
+}
+
+.second_rank {
+  border: 8px solid #f4ce4a;
+}
+
+.third_rank {
+  border: 8px solid #f7e296;
+}
+
+.white {
+  display: none;
+}
+
+/* .crown {
+  position: relative;
+  top: 10px;
+} */
+
+.rank_item__name {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.rank_item__score {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rank_item__rank,
+.rank_item__score,
+.rank_item__username {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 38.4px;
+  text-align: center;
+}
+
+.rank_item__username {
+  font-weight: 500;
+}
+
+@media (min-width: 375px) and (max-width: 767.98px) {
+  .score_container {
+    width: 110px;
+  }
+
+  .podium {
+    gap: 20px;
+  }
+
+  .users_photo {
+    width: 70px;
+    height: 70px;
+  }
+
+  .rank_name {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    gap: 0px;
+  }
+
+  .rank_display {
+    font-size: 40px;
+  }
+
+  .header__profileinfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .header__img {
+    width: 198px;
+  }
+
+  .profile__name {
+    display: flex;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .profile__logout_btn {
+    font-weight: 700;
+    cursor: pointer;
+    margin-right: 0px;
+    padding: 10px;
+    font-size: 18px;
+  }
+
+  .profile__img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .podium {
+    gap: 50px;
+  }
+
+  .white {
+    display: inline;
+    top: 0px;
+  }
+
+  .crown img {
+    width: 60px;
+    height: 60px;
+    top: 76px;
+  }
+
+  .score_container {
+    width: 180px;
+    gap: 10px;
+    border-radius: 20px;
+    padding-top: 60px;
+  }
+
+  .rank_name {
+    font-size: 24px;
+  }
+
+  .users_photo {
+    width: 100px;
+    height: 100px;
+    top: 60px;
+  }
+
+  .curve_container {
+    bottom: 250px;
+  }
+
+  /* .podium {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin-top: -50px;
+  }
+
+
+  .rank-value {
+    position: relative;
+    top: 75px;
+    font-weight: 700;
+    font-size: 32px;
+  }
+
+  .score-container {
+    width: 200px;
+    padding-top: 80px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .rank-name {
+    font-size: 24px;
+  }
+
+  .score-container__first {
+    background-color: #f3bd00;
+    height: 552px;
+  }
+
+  .score-container__second {
+    background-color: #f4ce4a;
+    height: 492px;
+  }
+
+  .score-container__third {
+    background-color: #f7e296;
+    height: 485px;
+  }
+
+  .first {
+    position: relative;
+    bottom: 10px;
+  }
+
+  .second {
+    position: relative;
+    bottom: 10px;
+  }
+
+  .third {
+    position: relative;
+    top: 15px;
+  }
+
+  .users-photo {
+    position: relative;
+    top: 80px;
+  }
+
+  .crown {
+    position: relative;
+    top: 90px;
+  }
+
+  .curve-container {
+    width: 100%;
+    border-radius: 50% 50% 0% 0%/ 90px;
+    box-shadow: 0px -8px 40px 0px rgba(28, 28, 30, 0.1);
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    bottom: 250px;
+    max-height: fit-content;
+  } */
+
+  .rank_value {
+    top: 55px;
+    font-size: 32px;
+  }
+
+  .other_ranks {
+    padding-top: 100px;
+  }
+
+  .score_heading {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 38.4px;
+    text-align: center;
+  }
+  .marks_heading {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 19.2px;
+    text-align: center;
+  }
+
+  .rank_item__rank,
+  .rank_item__score,
+  .rank_item__username {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 38.4px;
+    text-align: center;
+  }
+
+  .rank_item__username {
+    font-weight: 500;
+  }
+}
+
+@media (min-width: 1024px) {
+  header {
+    padding: 16px 80px;
+  }
+
+  .profile__name {
+    font-size: 20px;
+  }
+
+  .score_container {
+    width: 200px;
+    padding-top: 70px;
+  }
+
+  .users_photo {
+    width: 120px;
+    height: 120px;
+    top: 70px;
+  }
+
+  .rank_name {
+    font-size: 32px;
+  }
+
+  .rank_value {
+    top: 65px;
+  }
+
+  .crown img {
+    width: 80px;
+    height: 80px;
+    top: 90px;
+  }
+  .curve_container {
+    bottom: 200px;
+  }
+}

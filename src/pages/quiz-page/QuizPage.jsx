@@ -5,11 +5,17 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { HiArrowSmLeft, HiArrowSmRight } from "react-icons/hi";
 import { fetchQuestionsRequest } from "../../store/questions/questionActions";
+import {
+  addUserTestRequest,
+  fetchUsersGivenTestsRequest,
+  updateUserTestRequest,
+} from "../../store/usersGivenTests/userGivenTestsAction";
 const QuizPage = () => {
   const questions = useSelector((state) => state.question.questions);
-  const navigate = useNavigate();
-
-  const totalQuestions = 10;
+  const userGivenTests = useSelector(
+    (state) => state.userGivenTests.usersGivenTests
+  );
+  const totalQuestions = 3;
   const maxSliderValue = 100;
   const initialSilderValue = maxSliderValue / totalQuestions;
 
@@ -33,6 +39,7 @@ const QuizPage = () => {
 
   useEffect(() => {
     dispatch(fetchQuestionsRequest());
+    dispatch(fetchUsersGivenTestsRequest());
   }, [dispatch]);
 
   useEffect(() => {
@@ -105,45 +112,95 @@ const QuizPage = () => {
       if (confirm("Are you sure you want to submit the Quiz?")) {
         setQuizPage(false);
         setShowResults(true);
-        calculateMarks();
+        calculateMarks(updatedOptionsArray);
       }
     } else {
       setDisplayQuestion(displayQuestion + 1);
       setRangeSlider(rangeSlider + 1);
     }
-    console.log("Updated Options Array:", updatedOptionsArray);
   };
 
-  const calculateMarks = () => {
+  const calculateMarks = (selectedOptionsArray) => {
     let tempMarks = 0;
     let tempCorrectAnswers = 0;
-    let tempSelectedAnswersArray = [];
 
-    // Loop through selected options
-    selectedOptionsArray.forEach((selectedOption, index) => {
-      const correctAnswer = questions[randomNumberArray[index]].answer;
-      const isCorrect = selectedOption === correctAnswer;
+    const tempSelectedAnswersArray = selectedOptionsArray.map(
+      (selectedOption, index) => {
+        const correctAnswer = questions[randomNumberArray[index]].answer;
+        const isCorrect = selectedOption === correctAnswer;
 
-      // Calculate marks and track correct answers
-      if (isCorrect) {
-        tempMarks += 10;
-        tempCorrectAnswers++;
+        // Calculate marks and track correct answers
+        if (isCorrect) {
+          tempMarks += 10;
+          tempCorrectAnswers++;
+        }
+
+        // Return the object to be added to the tempSelectedAnswersArray
+        return {
+          question: questions[randomNumberArray[index]].question,
+          selectedAnswer: selectedOption,
+          correctAnswer: correctAnswer,
+          options: questions[randomNumberArray[index]].options,
+        };
       }
+    );
 
-      // Push details of the current question into the array
-      tempSelectedAnswersArray.push({
-        question: questions[randomNumberArray[index]].question,
-        selectedAnswer: selectedOption,
-        correctAnswer: correctAnswer,
-        options: questions[randomNumberArray[index]].options,
-      });
-      console.log(index);
-    });
+    console.log(tempSelectedAnswersArray);
 
-    // Update states
     setMarks(tempMarks);
     setCorrectAnswers(tempCorrectAnswers);
     setSelectedAnswersArray(tempSelectedAnswersArray);
+
+    // Prepare data for saving
+    const loggedInEmail = loggedInUser[0].email;
+    const date = new Date();
+
+    const newTest = {
+      testNo: noOfTimeTestGiven,
+      selectedAnswers: tempSelectedAnswersArray,
+      marks: tempMarks,
+      date: `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`,
+      time: `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`,
+      correctAnswers: tempCorrectAnswers,
+    };
+
+    // Add new test to the local state
+    const updatedTests = [...tests, newTest];
+    setTests(updatedTests); // Update tests state locally
+
+    // Checking if the user has any previous tests
+    const existingUser = userGivenTests.find(
+      (user) => user.email === loggedInEmail
+    );
+
+    if (existingUser) {
+      console.log("Existing user found, updating tests...");
+      const existingTests = existingUser.tests;
+      const newTests = [...existingTests, newTest]; // Append the new test to existing tests
+
+      // Dispatch the update action with the updated tests
+      dispatch(
+        updateUserTestRequest({
+          fullName: loggedInUser[0].fullName,
+          email: existingUser.email,
+          marks: tempMarks,
+          noOfTimeTestGiven,
+          tests: newTests, // Include both old and new tests
+        })
+      );
+    } else {
+      console.log("New user, adding tests...");
+      // Dispatch the add action for a new user
+      dispatch(
+        addUserTestRequest({
+          fullName: loggedInUser[0].fullName,
+          email: loggedInEmail,
+          marks: tempMarks,
+          noOfTimeTestGiven,
+          tests: updatedTests, // Include the current tests (if any)
+        })
+      );
+    }
   };
 
   return (
