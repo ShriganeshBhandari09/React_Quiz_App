@@ -113,6 +113,10 @@ header {
   color: black;
 }
 
+.sidebar-menu-links.active {
+  color: #f3bd00;
+}
+
 .sidebar-menu-links:hover {
   color: #f3bd00;
 }

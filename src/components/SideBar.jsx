@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import homePng from "../assets/home.png";
 import quizPng from "../assets/question.png";
 import teamworkPng from "../assets/teamwork.png";
@@ -10,18 +10,18 @@ const SideBar = () => {
         <h2>Menu</h2>
       </div>
       <div className="sidebar-menu">
-        <Link to="/admin-dashboard" className="sidebar-menu-links">
+        <NavLink to="/admin-dashboard" className="sidebar-menu-links">
           <img src={homePng} alt="" />
           Home
-        </Link>
-        <Link to="/quiz-questions" className="sidebar-menu-links">
+        </NavLink>
+        <NavLink to="/quiz-questions" className="sidebar-menu-links">
           <img src={quizPng} alt="" />
           Quizzes
-        </Link>
-        <Link to="/users" className="sidebar-menu-links">
+        </NavLink>
+        <NavLink to="/users" className="sidebar-menu-links">
           <img src={teamworkPng} alt="" />
           Users
-        </Link>
+        </NavLink>
       </div>
     </section>
   );

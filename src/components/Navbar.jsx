@@ -3,7 +3,7 @@ import styles from "../container/dashboard/dashboard.module.css";
 import { useEffect, useState } from "react";
 
 const Navbar = () => {
-  const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+  const [loggedInUser, setLoggedInUser] = useState([]);
   const [imgSrc, setImgSrc] = useState("src/assets/profile.svg");
   const navigate = useNavigate();
 
@@ -16,10 +16,12 @@ const Navbar = () => {
   };
 
   useEffect(() => {
+    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser")) || [];
+    setLoggedInUser(loggedInUser);
     setImgSrc(
       `https://ui-avatars.com/api/?name=${loggedInUser[0].fullName}&background=F3BD00&color=000`
     );
-  }, [setImgSrc, loggedInUser]);
+  }, [setImgSrc]);
 
   return (
     <header className={styles.header}>
