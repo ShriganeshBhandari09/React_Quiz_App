@@ -1,19 +1,35 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import Login from "./pages/auth/login/Login";
-import Signup from "./pages/auth/signup/Signup";
-import Dashboard from "./pages/dashboard/Dashboard";
-import QuizPage from "./pages/quiz-page/QuizPage";
-import Leaderboard from "./pages/leaderboard/Leaderboard";
+import LoginPage from "./pages/LoginPage";
+import SignupPage from "./pages/SignupPage";
+import DashboardPage from "./pages/DashboardPage";
+import QuizQestionPage from "./pages/QuizQestionPage";
+import LeaderboardPage from "./pages/LeaderboardPage";
+import AdminDashboardPage from "./pages/Admin/AdminDashboardPage";
+import AdminQuestionsPage from "./pages/Admin/AdminQuestionsPage";
+import AdminUsersPage from "./pages/Admin/AdminUsersPage";
+import UserHistoryPage from "./pages/Admin/UserHistoryPage";
+import UserTestListPage from "./pages/Admin/UserTestListPage";
 
 function App() {
   return (
     <Routes>
-      <Route path={"/"} element={<Login />} />
-      <Route path={"/signup"} element={<Signup />} />
-      <Route path={"/dashboard"} element={<Dashboard />} />
-      <Route path={"/quiz-page"} element={<QuizPage />} />
-      <Route path={"/leaderboard"} element={<Leaderboard />} />
+      <Route path={"/"} element={<LoginPage />} />
+      <Route path={"/signup"} element={<SignupPage />} />
+      <Route path={"/dashboard"} element={<DashboardPage />} />
+      <Route path={"/quiz-page"} element={<QuizQestionPage />} />
+      <Route path={"/leaderboard"} element={<LeaderboardPage />} />
+      <Route path={"/admin-dashboard"} element={<AdminDashboardPage />} />
+      <Route path={"/quiz-questions"} element={<AdminQuestionsPage />} />
+      <Route path={"/users"} element={<AdminUsersPage />} />
+      <Route
+        path="/users-history/:index/:fullName"
+        element={<UserHistoryPage />}
+      />
+      <Route
+        path="/users-testlist/:index/:fullName"
+        element={<UserTestListPage />}
+      />
     </Routes>
   );
 }

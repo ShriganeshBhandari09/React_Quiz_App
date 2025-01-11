@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Navbar from "../../components/Navbar";
 import styles from "./quizpage.module.css";
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router";
+import { Link } from "react-router";
 import { HiArrowSmLeft, HiArrowSmRight } from "react-icons/hi";
 import { fetchQuestionsRequest } from "../../store/questions/questionActions";
 import {
@@ -15,7 +15,7 @@ const QuizPage = () => {
   const userGivenTests = useSelector(
     (state) => state.userGivenTests.usersGivenTests
   );
-  const totalQuestions = 3;
+  const totalQuestions = 10;
   const maxSliderValue = 100;
   const initialSilderValue = maxSliderValue / totalQuestions;
 

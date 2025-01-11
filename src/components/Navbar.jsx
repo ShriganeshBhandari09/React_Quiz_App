@@ -1,12 +1,11 @@
-import { Link, useLocation, useNavigate } from "react-router";
-import styles from "../pages/dashboard/dashboard.module.css";
+import { Link, useNavigate } from "react-router";
+import styles from "../container/dashboard/dashboard.module.css";
 import { useEffect, useState } from "react";
 
 const Navbar = () => {
   const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
   const [imgSrc, setImgSrc] = useState("src/assets/profile.svg");
   const navigate = useNavigate();
-  const location = useLocation();
 
   const logout = () => {
     let text = "Are you sure you want to Logout?";

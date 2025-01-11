@@ -3,8 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { fetchUsersRequest } from "../../../store/users/userActions";
 import { assets } from "../../../assets/assets";
-import styles from "../login.module.css"
-
+import styles from "../login.module.css";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -22,10 +21,8 @@ const Login = () => {
 
     if (email === "admin@gmail.com" && password === "admin") {
       localStorage.setItem(
-        "loggedInUser",
-        JSON.stringify([
-          { fullName: "Admin", email: email, password: password },
-        ])
+        "adminLoggedIn",
+        JSON.stringify({ fullName: "Admin", email: email, password: password })
       );
       navigate("/admin-dashboard");
       alert("Login Successfull");

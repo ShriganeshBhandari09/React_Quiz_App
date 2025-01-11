@@ -297,6 +297,10 @@ header {
   text-align: center;
 }
 
+.currrnt_user_div{
+  background-color: #FBF1CE;
+}
+
 .rank_item__username {
   font-weight: 500;
 }

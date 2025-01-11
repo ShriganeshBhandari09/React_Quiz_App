@@ -11,6 +11,9 @@ const Leaderboard = () => {
   const dispatch = useDispatch();
 
   const [sortedUsers, setSortedUsers] = useState([]);
+  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUserIndex, setCurrentUserIndex] = useState(null);
+  const [currentUserMarks, setCurrentUserMarks] = useState(null);
 
   useEffect(() => {
     dispatch(fetchUsersGivenTestsRequest());
@@ -21,6 +24,23 @@ const Leaderboard = () => {
     const sortedData = [...userGivenTests].sort((a, b) => b.marks - a.marks);
     setSortedUsers(sortedData);
   }, [userGivenTests]);
+
+  useEffect(() => {
+    const currentUser = JSON.parse(localStorage.getItem("loggedInUser")) || [];
+    setCurrentUser(currentUser[0]);
+  }, []);
+
+  useEffect(() => {
+    if (currentUser && sortedUsers.length > 0) {
+      const index =
+        sortedUsers.findIndex(
+          (user) => user.fullName === currentUser.fullName
+        ) + 1;
+      const user = sortedUsers.find((user) => user.email === currentUser.email);
+      setCurrentUserIndex(index);
+      setCurrentUserMarks(user.marks);
+    }
+  }, [currentUser, sortedUsers]);
 
   console.log(sortedUsers);
   return (
@@ -45,7 +65,7 @@ const Leaderboard = () => {
               <div>
                 <img
                   className={`${styles.users_photo}  ${styles.second_rank}`}
-                  src={`https://ui-avatars.com/api/?name=${user.name}`}
+                  src={`https://ui-avatars.com/api/?name=${user.fullName}`}
                   alt=""
                   id="second-rank-proile-img"
                 />
@@ -54,7 +74,7 @@ const Leaderboard = () => {
                 className={`${styles.score_container} ${styles.score_container__second}`}
               >
                 <h2 className={styles.rank_name} id="second-rank-name">
-                  {user.name}
+                  {user.fullName}
                 </h2>
                 <h2 className={styles.score_heading}>Score</h2>
                 <h3 className={styles.marks_heading} id="second-rank-score">
@@ -63,7 +83,6 @@ const Leaderboard = () => {
               </div>
             </div>
           ))}
-
           {sortedUsers.slice(0, 1).map((user, index) => (
             <div className={`${styles.rank} ${styles.first}`} key={index}>
               <div className={`${styles.crown}`}>
@@ -72,7 +91,7 @@ const Leaderboard = () => {
               <div>
                 <img
                   className={`${styles.users_photo}  ${styles.first_rank}`}
-                  src={`https://ui-avatars.com/api/?name=${user.name}`}
+                  src={`https://ui-avatars.com/api/?name=${user.fullName}`}
                   alt=""
                   id="first-rank-proile-img"
                 />
@@ -81,7 +100,7 @@ const Leaderboard = () => {
                 className={`${styles.score_container} ${styles.score_container__first}`}
               >
                 <h2 className={styles.rank_name} id="first-rank-name">
-                  {user.name}
+                  {user.fullName}
                 </h2>
                 <h2 className={styles.score_heading}>Score</h2>
                 <h3 className={styles.marks_heading} id="first-rank-score">
@@ -99,7 +118,7 @@ const Leaderboard = () => {
               <div>
                 <img
                   className={`${styles.users_photo}  ${styles.third_rank}`}
-                  src={`https://ui-avatars.com/api/?name=${user.name}`}
+                  src={`https://ui-avatars.com/api/?name=${user.fullName}`}
                   alt=""
                   id="third-rank-proile-img"
                 />
@@ -108,7 +127,7 @@ const Leaderboard = () => {
                 className={`${styles.score_container} ${styles.score_container__third}`}
               >
                 <h2 className={styles.rank_name} id="third-rank-name">
-                  {user.name}
+                  {user.fullName}
                 </h2>
                 <h2 className={styles.score_heading}>Score</h2>
                 <h3 className={styles.marks_heading} id="third-rank-score">
@@ -120,22 +139,27 @@ const Leaderboard = () => {
         </div>
         <div className={styles.curve_container}>
           <div className={styles.other_ranks} id="other-ranks-section">
-            <div className={styles.rank_item} id="current-user-score">
-              <div className={styles.rank_item__name}>
-                <h3 className={styles.rank_item__rank} id="current-user-rank">
-                  #10
-                </h3>
-                <h3
-                  className={styles.rank_item__username}
-                  id="current-user-name"
-                >
-                  Shriganesh
-                </h3>
+            {currentUser && currentUserIndex && (
+              <div
+                className={`${styles.rank_item} ${styles.currrnt_user_div}`}
+                id="current-user-score"
+              >
+                <div className={styles.rank_item__name}>
+                  <h3 className={styles.rank_item__rank} id="current-user-rank">
+                    #{currentUserIndex}
+                  </h3>
+                  <h3
+                    className={styles.rank_item__username}
+                    id="current-user-name"
+                  >
+                    {currentUser.fullName}
+                  </h3>
+                </div>
+                <div className={styles.rank_item__score}>
+                  <h3 id="current-user-marks">{currentUserMarks}</h3>
+                </div>
               </div>
-              <div className={styles.rank_item__score}>
-                <h3 id="current-user-marks">80</h3>
-              </div>
-            </div>
+            )}
             <hr />
 
             {sortedUsers.slice(3, 6).map((user, index) => (
@@ -148,7 +172,7 @@ const Leaderboard = () => {
                     className={styles.rank_item__username}
                     id="fourth-rank-name"
                   >
-                    {user.name}
+                    {user.fullName}
                   </h3>
                 </div>
                 <div className={styles.rank_item__score}>
@@ -167,7 +191,7 @@ const Leaderboard = () => {
                     className={styles.rank_item__username}
                     id="fourth-rank-name"
                   >
-                    {user.name}
+                    {user.fullName}
                   </h3>
                 </div>
                 <div className={styles.rank_item__score}>
