@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router";
 import styles from "../container/dashboard/dashboard.module.css";
 import { useEffect, useState } from "react";
+import { assets } from "../assets/assets";
 
 const Navbar = () => {
   const [loggedInUser, setLoggedInUser] = useState([]);
@@ -29,7 +30,7 @@ const Navbar = () => {
         <Link to="/dashboard">
           <img
             className={styles.header__img}
-            src="src/assets/quiz-logo.png"
+            src={assets.quizLogo}
             alt="logo"
           />
         </Link>

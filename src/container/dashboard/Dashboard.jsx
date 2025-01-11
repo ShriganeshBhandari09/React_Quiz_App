@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 import styles from "./dashboard.module.css";
 import Navbar from "../../components/Navbar";
+import { assets } from "../../assets/assets";
 const Dashboard = () => {
   return (
     <section>
@@ -11,7 +12,7 @@ const Dashboard = () => {
             Let&apos;s Start the Quiz
           </h1>
           <span className={styles.dashboard_section__time}>
-            <img src="src/assets/time.svg" alt="" />
+            <img src={assets.time} alt="" />
             10 min
           </span>
           <ul className={styles.class__description}>
@@ -23,7 +24,7 @@ const Dashboard = () => {
           <div className={styles.content__img_wrapper}>
             <img
               className={styles.content__img}
-              src="src/assets/dashboard.svg"
+              src={assets.dashbaord}
               alt=""
             />
           </div>

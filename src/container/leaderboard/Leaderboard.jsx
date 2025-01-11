@@ -3,6 +3,7 @@ import Navbar from "../../components/Navbar";
 import styles from "./leaderboard.module.css";
 import { useEffect, useState } from "react";
 import { fetchUsersGivenTestsRequest } from "../../store/usersGivenTests/userGivenTestsAction";
+import { assets } from "../../assets/assets";
 
 const Leaderboard = () => {
   const userGivenTests = useSelector(
@@ -59,7 +60,7 @@ const Leaderboard = () => {
           {sortedUsers.slice(1, 2).map((user, index) => (
             <div className={`${styles.rank} ${styles.second}`} key={index}>
               <div className={`${styles.crown} ${styles.white}`}>
-                <img src="src/assets/crown-white.svg" alt="" />
+                <img src={assets.crownWhite} alt="" />
               </div>
               <p className={styles.rank_value}>#{2 + index}</p>
               <div>
@@ -86,7 +87,7 @@ const Leaderboard = () => {
           {sortedUsers.slice(0, 1).map((user, index) => (
             <div className={`${styles.rank} ${styles.first}`} key={index}>
               <div className={`${styles.crown}`}>
-                <img src="src/assets/crown.svg" alt="" />
+                <img src={assets.crown} alt="" />
               </div>
               <div>
                 <img
@@ -112,7 +113,7 @@ const Leaderboard = () => {
           {sortedUsers.slice(2, 3).map((user, index) => (
             <div className={`${styles.rank} ${styles.third}`} key={index}>
               <div className={`${styles.crown} ${styles.white}`}>
-                <img src="src/assets/crown-white.svg" alt="" />
+                <img src={assets.crownWhite} alt="" />
               </div>
               <p className={styles.rank_value}>#3</p>
               <div>

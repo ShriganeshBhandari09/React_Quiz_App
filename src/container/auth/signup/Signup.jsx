@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "../login.module.css";
 import { addUserRequest } from "../../../store/users/userActions";
+import { assets } from "../../../assets/assets";
 
 const Signup = () => {
   const dispatch = useDispatch();
@@ -55,7 +56,7 @@ const Signup = () => {
   return (
     <section className={`${styles.auth} ${styles.container}`}>
       <div className={`${styles.auth__img_wrapper}`}>
-        <img className={styles.auth__img} src="src/assets/signup.svg" alt="" />
+        <img className={styles.auth__img} src={assets.signup} alt="" />
       </div>
       <div className={styles.auth__form_container}>
         <div className={styles.auth__form_header}>
@@ -132,7 +133,7 @@ const Signup = () => {
         >
           <img
             className={styles.secondary__btn_img}
-            src="src/assets/google.svg"
+            src={assets.google}
             alt="google-img"
           />
           Sign up with Google

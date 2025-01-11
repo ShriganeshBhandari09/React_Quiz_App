@@ -95,7 +95,7 @@ const Login = () => {
         >
           <img
             className={styles.secondary__btn_img}
-            src="src/assets/google.svg"
+            src={assets.google}
             alt="google-img"
           />
           Sign up with Google
