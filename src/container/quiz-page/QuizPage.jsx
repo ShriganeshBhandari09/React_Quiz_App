@@ -15,7 +15,7 @@ const QuizPage = () => {
   const userGivenTests = useSelector(
     (state) => state.userGivenTests.usersGivenTests
   );
-  const totalQuestions = 3;
+  const totalQuestions = 10;
   const maxSliderValue = 100;
   const initialSilderValue = maxSliderValue / totalQuestions;
 
