@@ -308,7 +308,7 @@ td {
   /* display: none; */
 }
 .view-question-container,
-.add-expense-container,
+.add-question-container,
 .delete-modal-container {
   background-color: white;
   position: fixed;
@@ -320,6 +320,10 @@ td {
   flex-direction: column;
   gap: 10px;
   border-radius: 10px;
+}
+
+.add-question-container{
+  width: 40%;
 }
 
 .close-button {
@@ -343,54 +347,56 @@ td {
 }
 
 .view-question-header-container,
-.add-expense-header-container {
+.add-question-header-container {
   border-bottom: 1px solid black;
   padding: 15px 30px;
 }
 
 .view-question-heading,
-.add-expense-heading {
+.add-question-heading {
   font-size: 30px;
 }
 
-.add-budget-div,
-.add-expense-div {
+.add-question-div {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.quiz-question-form form,
-.update-quiz-question-form form {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  flex-direction: column;
-}
-
-.showquestionform,
-.show-update-question-form,
-.show-view-question {
-  top: 50%;
-  z-index: 9;
-}
-
-.question-form-div {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.question-form-div label {
+.add-question-container label {
   font-size: 24px;
 }
 
-.question-form-div input,
-.question-form-div select {
+.add-question-container form {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  padding: 20px 30px;
+}
+
+.add-question-container input {
   font-size: 24px;
   padding: 10px;
   border: 1px solid black;
-  border-radius: 20px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.add-question-container button {
+  background-color: #f3bd00;
+  padding: 10px 20px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 18.4px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: fit-content;
 }
 
 .cross-mark {

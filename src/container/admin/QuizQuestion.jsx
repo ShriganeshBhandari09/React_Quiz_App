@@ -7,11 +7,13 @@ import { FaPencil } from "react-icons/fa6";
 import { FaTrash } from "react-icons/fa";
 import ViewQuestionModal from "../../components/Modals/ViewQuestionModal";
 import SideBar from "../../components/SideBar";
+import AddQuestionModal from "../../components/Modals/AddQuestionModal";
 
 const QuizQuestion = () => {
   const [sidebar, setSideBar] = useState(true);
   const [selectedQuestion, setSelectedQuestion] = useState(null);
   const [viewQuestionModal, setViewQuestionModal] = useState(false);
+  const [addQuestionModal, setAddQuestionModal] = useState(false);
 
   const questions = useSelector((state) => state.question.questions);
   const dispatch = useDispatch();
@@ -31,13 +33,15 @@ const QuizQuestion = () => {
     <div>
       <AdminNavbar sidebar={sidebar} setSideBar={setSideBar} />
       <main className="main-container">
-      {sidebar && (
-          <SideBar/>
-        )}
+        {sidebar && <SideBar />}
         <section className="quiz-questions-section">
           <h1 className="quiz-questions-section__header">MCQ Question Lists</h1>
           <div className="quiz-question-btn-wrapper">
-            <button type="button" className="add-question-btn">
+            <button
+              type="button"
+              className="add-question-btn"
+              onClick={() => setAddQuestionModal(true)}
+            >
               Add New Question
             </button>
           </div>
@@ -74,7 +78,14 @@ const QuizQuestion = () => {
         </section>
       </main>
       {viewQuestionModal && (
-        <ViewQuestionModal selectedQuestion={selectedQuestion} setViewQuestionModal={setViewQuestionModal} />
+        <ViewQuestionModal
+          selectedQuestion={selectedQuestion}
+          setViewQuestionModal={setViewQuestionModal}
+        />
+      )}
+
+      {addQuestionModal && (
+        <AddQuestionModal setAddQuestionModal={setAddQuestionModal} />
       )}
     </div>
   );

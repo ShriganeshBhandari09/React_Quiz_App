@@ -54,4 +54,6 @@ const AdminNavbar = ({ sidebar, setSideBar }) => {
   );
 };
 
+AdminNavbar.propTypes;
+
 export default AdminNavbar;
