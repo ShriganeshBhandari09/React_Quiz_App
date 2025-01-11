@@ -1,7 +1,7 @@
 import axios from "axios";
 import { all, call, fork, put, takeLatest } from "redux-saga/effects";
 
-const apiUrl = "http://localhost:5000/questions";
+const apiUrl = "https://quiz-app-json-server.onrender.com/questions";
 function* fetchQuestions() {
   try {
     const response = yield call(axios.get, apiUrl);
@@ -22,6 +22,17 @@ function* addQuestions(action) {
   }
 }
 
+function* deleteQuestion(action) {
+  try {
+    yield call(axios.delete, apiUrl, action.payload);
+    yield put({ type: "DELETE_QUESTION_SUCCESS", payload: action.payload });
+    console.log("Delete question running");
+  } catch (error) {
+    yield put({ type: "DELETE_QUESTION_ERROR", payload: error.message });
+    console.log("Delete question error");
+  }
+}
+
 function* watchQuestions() {
   yield takeLatest("FETCH_QUESTIONS_REQUEST", fetchQuestions);
 }
@@ -30,6 +41,14 @@ function* watchAddQuestions() {
   yield takeLatest("ADD_QUESTION_REQUEST", addQuestions);
 }
 
+function* watchDeleteQuestion() {
+  yield takeLatest("DELETE_QUESTION_REQUEST", deleteQuestion);
+}
+
 export default function* questionSaga() {
-  yield all([fork(watchQuestions), fork(watchAddQuestions)]);
+  yield all([
+    fork(watchQuestions),
+    fork(watchAddQuestions),
+    fork(watchDeleteQuestion),
+  ]);
 }

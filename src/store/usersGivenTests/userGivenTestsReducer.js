@@ -18,7 +18,7 @@ const userGivenTestReducer = (state = initialState, action) => {
       return {
         ...state,
         usersGivenTests: state.usersGivenTests.map((user) =>
-          user.email === action.payload.email ? action.payload : user
+          user.id === action.payload.id ? action.payload : user
         ),
       };
 

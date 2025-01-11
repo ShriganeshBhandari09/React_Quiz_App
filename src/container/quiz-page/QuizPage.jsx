@@ -15,7 +15,7 @@ const QuizPage = () => {
   const userGivenTests = useSelector(
     (state) => state.userGivenTests.usersGivenTests
   );
-  const totalQuestions = 10;
+  const totalQuestions = 3;
   const maxSliderValue = 100;
   const initialSilderValue = maxSliderValue / totalQuestions;
 
@@ -155,8 +155,13 @@ const QuizPage = () => {
     const loggedInEmail = loggedInUser[0].email;
     const date = new Date();
 
+    // Checking if the user has any previous tests
+    const existingUser = userGivenTests.find(
+      (user) => user.email === loggedInEmail
+    );
+
     const newTest = {
-      testNo: noOfTimeTestGiven,
+      testNo: existingUser?.noOfTimeTestGiven + 1 || 1,
       selectedAnswers: tempSelectedAnswersArray,
       marks: tempMarks,
       date: `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`,
@@ -168,11 +173,6 @@ const QuizPage = () => {
     const updatedTests = [...tests, newTest];
     setTests(updatedTests); // Update tests state locally
 
-    // Checking if the user has any previous tests
-    const existingUser = userGivenTests.find(
-      (user) => user.email === loggedInEmail
-    );
-
     if (existingUser) {
       console.log("Existing user found, updating tests...");
       const existingTests = existingUser.tests;
@@ -181,11 +181,12 @@ const QuizPage = () => {
       // Dispatch the update action with the updated tests
       dispatch(
         updateUserTestRequest({
+          id: existingUser.id,
           fullName: loggedInUser[0].fullName,
-          email: existingUser.email,
+          email: loggedInEmail,
           marks: tempMarks,
-          noOfTimeTestGiven,
-          tests: newTests, // Include both old and new tests
+          noOfTimeTestGiven: noOfTimeTestGiven + 1,
+          tests: newTests, // Include the current tests (if any)
         })
       );
     } else {
@@ -196,7 +197,7 @@ const QuizPage = () => {
           fullName: loggedInUser[0].fullName,
           email: loggedInEmail,
           marks: tempMarks,
-          noOfTimeTestGiven,
+          noOfTimeTestGiven: noOfTimeTestGiven,
           tests: updatedTests, // Include the current tests (if any)
         })
       );

@@ -29,7 +29,11 @@ function* addUserTest(action) {
 // Update a user test
 function* updateUserTest(action) {
   try {
-    const response = yield call(axios.put, apiUrl, action.payload);
+    const response = yield call(
+      axios.put,
+      `${apiUrl}/${action.payload.id}`,
+      action.payload
+    );
     yield put({ type: "UPDATE_USER_TEST_SUCCESS", payload: response.data });
     console.log("Calling");
   } catch (error) {

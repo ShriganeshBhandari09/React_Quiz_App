@@ -1,6 +1,16 @@
+import { useDispatch } from "react-redux";
 import exclamation from "../../assets/exclamation.png";
+import { deleteQuestionRequest } from "../../store/questions/questionActions";
 
 const DeleteQuestionModal = ({ selectedQuestion, setDeleteQuestionModal }) => {
+  const dispatch = useDispatch();
+
+  const handleDelete = (id) => {
+    dispatch(deleteQuestionRequest(id));
+    setDeleteQuestionModal(false);
+  };
+
+  console.log(selectedQuestion.id);
   return (
     <>
       <div className="opacity"></div>
@@ -25,7 +35,12 @@ const DeleteQuestionModal = ({ selectedQuestion, setDeleteQuestionModal }) => {
           <div
             style={{ display: "flex", gap: "10px", justifyContent: "center" }}
           >
-            <button className="primary-btn">Delete</button>
+            <button
+              className="primary-btn"
+              onClick={() => handleDelete(selectedQuestion.id)}
+            >
+              Delete
+            </button>
             <button
               className="primary-btn"
               style={{ backgroundColor: "#ff2146" }}
@@ -40,6 +55,6 @@ const DeleteQuestionModal = ({ selectedQuestion, setDeleteQuestionModal }) => {
   );
 };
 
-DeleteQuestionModal.propTypes
+DeleteQuestionModal.propTypes;
 
 export default DeleteQuestionModal;

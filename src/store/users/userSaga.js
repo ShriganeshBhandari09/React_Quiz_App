@@ -3,7 +3,7 @@ import { all, fork, put, call, takeLatest } from "redux-saga/effects";
 import axios from "axios";
 
 // Centralized API URL for consistency
-const apiUrl = "http://localhost:5000/users";
+const apiUrl = "https://quiz-app-json-server.onrender.com/users";
 
 function* fetchUsers() {
   try {

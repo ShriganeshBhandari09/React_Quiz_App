@@ -24,3 +24,18 @@ export const addQuestionError = (error) => ({
   type: "ADD_QUESTION_ERROR",
   payload: error,
 });
+
+export const deleteQuestionRequest = (id) => ({
+  type: "DELETE_QUESTION_REQUEST",
+  payload: id,
+});
+
+export const deleteQuestionSuccess = (id) => ({
+  type: "DELETE_QUESTION_SUCCESS",
+  payload: id,
+});
+
+export const deleteQuestionError = (error) => ({
+  type: "DELETE_QUESTION_ERROR",
+  payload: error,
+});
