@@ -9,6 +9,13 @@ const questionReducer = (state = initialState, action) => {
       return { ...state, loading: false, questions: action.payload };
     case "ADD_QUESTION_SUCCESS":
       return { ...state, questions: [...state.questions, action.payload] };
+    case "UPDATE_QUESTION_SUCCESS":
+      return {
+        ...state,
+        questions: state.questions.map((question) =>
+          question.id === action.payload.id ? action.payload : question
+        ),
+      };
     case "DELETE_QUESTION_SUCCESS":
       return {
         ...state,

@@ -25,6 +25,22 @@ export const addQuestionError = (error) => ({
   payload: error,
 });
 
+
+export const updateQuestionRequest = (question) => ({
+  type:"UPDATE_QUESTION_REQUEST",
+  payload: question
+})
+
+export const updateQuestionSuccess = (question) => ({
+  type:"UPDATE_QUESTION_SUCCESS",
+  payload: question
+})
+
+export const updateQuestionError = (error) => ({
+  type:"UPDATE_QUESTION_ERROR",
+  payload: error
+})
+
 export const deleteQuestionRequest = (id) => ({
   type: "DELETE_QUESTION_REQUEST",
   payload: id,

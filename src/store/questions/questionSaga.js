@@ -22,9 +22,26 @@ function* addQuestions(action) {
   }
 }
 
+function* updateQuestion(action) {
+  try {
+    const response = yield call(
+      axios.put,
+      `${apiUrl}/${action.payload.id}`,
+      action.payload
+    );
+    yield put({ type: "UPDATE_QUESTION_SUCCESS", payload: response.data });
+    console.log("Update question running");
+
+  } catch (error) {
+    yield put({ type: "UPDATE_QUESTION_ERROR", payload: error.message });
+    console.log("Update question Error");
+
+  }
+}
+
 function* deleteQuestion(action) {
   try {
-    yield call(axios.delete, apiUrl, action.payload);
+    yield call(axios.delete, `${apiUrl}/${action.payload}`, action.payload);
     yield put({ type: "DELETE_QUESTION_SUCCESS", payload: action.payload });
     console.log("Delete question running");
   } catch (error) {
@@ -41,6 +58,10 @@ function* watchAddQuestions() {
   yield takeLatest("ADD_QUESTION_REQUEST", addQuestions);
 }
 
+function* watchUpdateQuestion() {
+  yield takeLatest("UPDATE_QUESTION_REQUEST", updateQuestion);
+}
+
 function* watchDeleteQuestion() {
   yield takeLatest("DELETE_QUESTION_REQUEST", deleteQuestion);
 }
@@ -50,5 +71,6 @@ export default function* questionSaga() {
     fork(watchQuestions),
     fork(watchAddQuestions),
     fork(watchDeleteQuestion),
+    fork(watchUpdateQuestion),
   ]);
 }

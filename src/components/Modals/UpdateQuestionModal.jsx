@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { updateQuestionRequest } from "../../store/questions/questionActions";
 
 const UpdateQuestionModal = ({ selectedQuestion, setUpdateQuestionModal }) => {
   const [question, setQuestion] = useState(selectedQuestion.question);
@@ -6,7 +8,23 @@ const UpdateQuestionModal = ({ selectedQuestion, setUpdateQuestionModal }) => {
   const [optionTwo, setOptionTwo] = useState(selectedQuestion.options[1]);
   const [optionThree, setOptionThree] = useState(selectedQuestion.options[2]);
   const [optionFour, setOptionFour] = useState(selectedQuestion.options[3]);
-  const [correctAnswer, setCorrectAnswer] = useState(selectedQuestion.answer);
+  const [answer, setAnswer] = useState(selectedQuestion.answer);
+
+  const dispatch = useDispatch();
+
+  const options = [optionOne, optionTwo, optionThree, optionFour];
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(
+      updateQuestionRequest({
+        id: selectedQuestion.id,
+        question,
+        options,
+        answer,
+      })
+    );
+    setUpdateQuestionModal(false);
+  };
 
   return (
     <>
@@ -24,7 +42,7 @@ const UpdateQuestionModal = ({ selectedQuestion, setUpdateQuestionModal }) => {
         <div className="add-question-header-container">
           <h2 className="add-question-heading">Update Question</h2>
         </div>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="add-question-div">
             <label htmlFor="question">Question</label>
             <input
@@ -85,8 +103,8 @@ const UpdateQuestionModal = ({ selectedQuestion, setUpdateQuestionModal }) => {
             <select
               name="options"
               id="options"
-              value={correctAnswer}
-              onChange={(e) => setCorrectAnswer(e.target.value)}
+              value={answer}
+              onChange={(e) => setAnswer(e.target.value)}
             >
               <option value="">Choose an option</option>
               <option value={optionOne}>{optionOne}</option>
