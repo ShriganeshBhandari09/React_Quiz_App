@@ -271,6 +271,17 @@
       "answer": "Element",
       "explanation": "'Element' is not a JavaScript data type. The valid data types are String, Number, Boolean, Object, Undefined, Null, and Symbol.",
       "id": "5fbd"
+    },
+    {
+      "id": "49e8",
+      "question": "What does CSS stand for?",
+      "options": [
+        "Creative Style Sheets",
+        "Cascading Style Sheets",
+        "Computer Style Sheets",
+        "Colorful Style Sheets"
+      ],
+      "answer": "Creative Style Sheets"
     }
   ],
   "userTests": [

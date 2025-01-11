@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addQuestionRequest } from "../../store/questions/questionActions";
 
 const AddQuestionModal = ({ setAddQuestionModal }) => {
   const [question, setQuestion] = useState("");
@@ -6,7 +8,17 @@ const AddQuestionModal = ({ setAddQuestionModal }) => {
   const [optionTwo, setOptionTwo] = useState("");
   const [optionThree, setOptionThree] = useState("");
   const [optionFour, setOptionFour] = useState("");
-  const [correctAnswer, setCorrectAnswer] = useState("");
+  const [answer, setAnswer] = useState("");
+
+  const dispatch = useDispatch();
+
+  const options = [optionOne, optionTwo, optionThree, optionFour];
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(addQuestionRequest({ question, options, answer }));
+    setAddQuestionModal(false);
+  };
 
   return (
     <>
@@ -21,7 +33,7 @@ const AddQuestionModal = ({ setAddQuestionModal }) => {
         <div className="add-question-header-container">
           <h2 className="add-question-heading">Add Question</h2>
         </div>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="add-question-div">
             <label htmlFor="question">Question</label>
             <input
@@ -82,8 +94,8 @@ const AddQuestionModal = ({ setAddQuestionModal }) => {
             <select
               name="options"
               id="options"
-              value={correctAnswer}
-              onChange={(e) => setCorrectAnswer(e.target.value)}
+              value={answer}
+              onChange={(e) => setAnswer(e.target.value)}
             >
               <option value="">Choose an option</option>
               <option value={optionOne}>{optionOne}</option>
@@ -92,7 +104,9 @@ const AddQuestionModal = ({ setAddQuestionModal }) => {
               <option value={optionFour}>{optionFour}</option>
             </select>
           </div>
-          <button className="primary-btn" type="submit">Add Question</button>
+          <button className="primary-btn" type="submit">
+            Add Question
+          </button>
         </form>
       </div>
     </>
