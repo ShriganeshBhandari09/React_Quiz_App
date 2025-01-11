@@ -8,12 +8,16 @@ import { FaTrash } from "react-icons/fa";
 import ViewQuestionModal from "../../components/Modals/ViewQuestionModal";
 import SideBar from "../../components/SideBar";
 import AddQuestionModal from "../../components/Modals/AddQuestionModal";
+import UpdateQuestionModal from "../../components/Modals/UpdateQuestionModal";
+import DeleteQuestionModal from "../../components/Modals/DeleteQuestionModal";
 
 const QuizQuestion = () => {
   const [sidebar, setSideBar] = useState(true);
   const [selectedQuestion, setSelectedQuestion] = useState(null);
   const [viewQuestionModal, setViewQuestionModal] = useState(false);
   const [addQuestionModal, setAddQuestionModal] = useState(false);
+  const [updateQuestionModal, setUpdateQuestionModal] = useState(false);
+  const [deleteQuestionModal, setDeleteQuestionModal] = useState(false);
 
   const questions = useSelector((state) => state.question.questions);
   const dispatch = useDispatch();
@@ -29,6 +33,17 @@ const QuizQuestion = () => {
     setSelectedQuestion(question);
     setViewQuestionModal(true);
   };
+
+  const updateQuestion = (question) => {
+    setSelectedQuestion(question);
+    setUpdateQuestionModal(!updateQuestionModal);
+  };
+
+  const deleteQuestion = (question) => {
+    setSelectedQuestion(question);
+    setDeleteQuestionModal(!deleteQuestionModal);
+  };
+
   return (
     <div>
       <AdminNavbar sidebar={sidebar} setSideBar={setSideBar} />
@@ -63,10 +78,10 @@ const QuizQuestion = () => {
                       <button onClick={() => viewQuestion(question)}>
                         <FaEye />
                       </button>
-                      <button>
+                      <button onClick={() => updateQuestion(question)}>
                         <FaPencil />
                       </button>
-                      <button>
+                      <button onClick={() => deleteQuestion(question)}>
                         <FaTrash />
                       </button>
                     </div>
@@ -86,6 +101,20 @@ const QuizQuestion = () => {
 
       {addQuestionModal && (
         <AddQuestionModal setAddQuestionModal={setAddQuestionModal} />
+      )}
+
+      {updateQuestionModal && (
+        <UpdateQuestionModal
+          selectedQuestion={selectedQuestion}
+          setUpdateQuestionModal={setUpdateQuestionModal}
+        />
+      )}
+
+      {deleteQuestionModal && (
+        <DeleteQuestionModal
+          selectedQuestion={selectedQuestion}
+          setDeleteQuestionModal={setDeleteQuestionModal}
+        />
       )}
     </div>
   );

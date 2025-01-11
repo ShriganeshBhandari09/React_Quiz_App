@@ -19,7 +19,7 @@ const Navbar = () => {
     const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser")) || [];
     setLoggedInUser(loggedInUser);
     setImgSrc(
-      `https://ui-avatars.com/api/?name=${loggedInUser[0].fullName}&background=F3BD00&color=000`
+      `https://ui-avatars.com/api/?name=${loggedInUser[0]?.fullName}&background=F3BD00&color=000`
     );
   }, [setImgSrc]);
 
