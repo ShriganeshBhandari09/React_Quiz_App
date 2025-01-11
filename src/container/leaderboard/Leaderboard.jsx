@@ -4,6 +4,7 @@ import styles from "./leaderboard.module.css";
 import { useEffect, useState } from "react";
 import { fetchUsersGivenTestsRequest } from "../../store/usersGivenTests/userGivenTestsAction";
 import { assets } from "../../assets/assets";
+import RankHeading from "../../components/RankHeading";
 
 const Leaderboard = () => {
   const userGivenTests = useSelector(
@@ -49,12 +50,18 @@ const Leaderboard = () => {
       <Navbar />
       <div className={styles.container}>
         <div>
-          <h1 className={styles.rank_display} id="display-rank">
-            Wow you rank 1st
-          </h1>
-          <h2 className={styles.supporting_text} id="supporting-text">
-            Congratulation
-          </h2>
+          {currentUserIndex === 1 && (
+            <RankHeading currentUserIndex={currentUserIndex} suffix={"st"} />
+          )}
+          {currentUserIndex === 2 && (
+            <RankHeading currentUserIndex={currentUserIndex} suffix={"nd"} />
+          )}
+          {currentUserIndex === 3 && (
+            <RankHeading currentUserIndex={currentUserIndex} suffix={"rd"} />
+          )}
+          {currentUserIndex > 3 && (
+            <RankHeading currentUserIndex={currentUserIndex} suffix={"th"} />
+          )}
         </div>
         <div className={styles.podium}>
           {sortedUsers.slice(1, 2).map((user, index) => (
