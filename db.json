@@ -264,7 +264,7 @@
       "id": "e588",
       "fullName": "Shriganesh Bhandari",
       "email": "shriganesh.bhandari693@gmail.com",
-      "marks": 90,
+      "marks": 100,
       "noOfTimeTestGiven": 2,
       "tests": [
         {
@@ -623,6 +623,125 @@
           "date": "12-1-2025",
           "time": "18:32:50",
           "correctAnswers": 9
+        },
+        {
+          "testNo": 3,
+          "selectedAnswers": [
+            {
+              "question": "What does 'DOM' stand for in JavaScript?",
+              "selectedAnswer": "Document Object Model",
+              "correctAnswer": "Document Object Model",
+              "options": [
+                "Document Object Model",
+                "Data Object Model",
+                "Document Oriented Module",
+                "Data Oriented Module"
+              ]
+            },
+            {
+              "question": "What is the default file extension for HTML files?",
+              "selectedAnswer": ".html",
+              "correctAnswer": ".html",
+              "options": [
+                ".html",
+                ".htm",
+                ".xml",
+                ".doc"
+              ]
+            },
+            {
+              "question": "What does 'useState' in React do?",
+              "selectedAnswer": "Creates a state variable.",
+              "correctAnswer": "Creates a state variable.",
+              "options": [
+                "Creates a state variable.",
+                "Handles side effects.",
+                "Renders components conditionally.",
+                "None of the above."
+              ]
+            },
+            {
+              "question": "What is the difference between 'let' and 'var'?",
+              "selectedAnswer": "'let' is block-scoped, 'var' is function-scoped.",
+              "correctAnswer": "'let' is block-scoped, 'var' is function-scoped.",
+              "options": [
+                "'let' is block-scoped, 'var' is function-scoped.",
+                "'var' is block-scoped, 'let' is function-scoped.",
+                "Both are function-scoped.",
+                "Both are block-scoped."
+              ]
+            },
+            {
+              "question": "What does the <meta> tag do in HTML?",
+              "selectedAnswer": "Defines metadata about the document.",
+              "correctAnswer": "Defines metadata about the document.",
+              "options": [
+                "Defines metadata about the document.",
+                "Creates links to other pages.",
+                "Formats text in a specific way.",
+                "Defines styles for the page."
+              ]
+            },
+            {
+              "question": "What is the purpose of the 'key' prop in React lists?",
+              "selectedAnswer": "To uniquely identify a list item.",
+              "correctAnswer": "To uniquely identify a list item.",
+              "options": [
+                "To uniquely identify a list item.",
+                "To style list items dynamically.",
+                "To create a reference to a DOM element.",
+                "To sort the list items automatically."
+              ]
+            },
+            {
+              "question": "What is JSX in React?",
+              "selectedAnswer": "A syntax extension for JavaScript.",
+              "correctAnswer": "A syntax extension for JavaScript.",
+              "options": [
+                "A syntax extension for JavaScript.",
+                "A type of CSS framework.",
+                "A template engine for React.",
+                "A database query language."
+              ]
+            },
+            {
+              "question": "Which property is used to change the background color of an element?",
+              "selectedAnswer": "background-color",
+              "correctAnswer": "background-color",
+              "options": [
+                "color",
+                "background",
+                "background-color",
+                "bgcolor"
+              ]
+            },
+            {
+              "question": "What does CSS stand for?",
+              "selectedAnswer": "Cascading Style Sheets",
+              "correctAnswer": "Cascading Style Sheets",
+              "options": [
+                "Creative Style Sheets",
+                "Cascading Style Sheets",
+                "Computer Style Sheets",
+                "Colorful Style Sheets"
+              ]
+            },
+            {
+              "question": "What is the difference between 'state' and 'props' in React?",
+              "selectedAnswer": "'state' is managed within the component, 'props' are passed from parent to child.",
+              "correctAnswer": "'state' is managed within the component, 'props' are passed from parent to child.",
+              "options": [
+                "'state' is managed within the component, 'props' are passed from parent to child.",
+                "'props' are managed within the component, 'state' is passed from parent to child.",
+                "Both 'state' and 'props' are read-only.",
+                "'state' is immutable, 'props' are mutable."
+              ]
+            }
+          ],
+          "marks": 100,
+          "date": "12-1-2025",
+          "time": "19:21:23",
+          "correctAnswers": 10
         }
       ]
     },

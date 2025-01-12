@@ -10,12 +10,13 @@ import {
   fetchUsersGivenTestsRequest,
   updateUserTestRequest,
 } from "../../store/usersGivenTests/userGivenTestsAction";
+import { TOTAL_QUESTIONS } from "../../config";
 const QuizPage = () => {
   const questions = useSelector((state) => state.question.questions);
   const userGivenTests = useSelector(
     (state) => state.userGivenTests.usersGivenTests
   );
-  const totalQuestions = 10;
+  const totalQuestions = TOTAL_QUESTIONS;
   const maxSliderValue = 100;
   const initialSilderValue = maxSliderValue / totalQuestions;
 

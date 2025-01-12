@@ -1,13 +1,18 @@
 import { all, fork, put, call, takeLatest } from "redux-saga/effects";
 
 import axios from "axios";
+import { USERTEST_API_ENDPOINTS } from "./UsersGivenTestsConstants";
+import { API_URL } from "../../config";
 
 // Centralized API URL for consistency
 const apiUrl = "http://localhost:5000/userTests";
 
 function* fetchUserGivenTests() {
   try {
-    const response = yield call(axios.get, apiUrl);
+    const response = yield call(
+      axios.get,
+      `${USERTEST_API_ENDPOINTS.userTestAPI}`
+    );
     yield put({
       type: "FETCH_USER_GIVEN_TEST_SUCCESS",
       payload: response.data,
@@ -19,7 +24,11 @@ function* fetchUserGivenTests() {
 
 function* addUserTest(action) {
   try {
-    const response = yield call(axios.post, apiUrl, action.payload);
+    const response = yield call(
+      axios.post,
+      `${USERTEST_API_ENDPOINTS.userTestAPI}`,
+      action.payload
+    );
     yield put({ type: "ADD_USER_TEST_SUCCESS", payload: response.data });
   } catch (error) {
     yield put({ type: "ADD_USER_TEST_ERROR", payload: error.message });
@@ -31,7 +40,7 @@ function* updateUserTest(action) {
   try {
     const response = yield call(
       axios.put,
-      `${apiUrl}/${action.payload.id}`,
+      `${USERTEST_API_ENDPOINTS.userTestAPI}/${action.payload.id}`,
       action.payload
     );
     yield put({ type: "UPDATE_USER_TEST_SUCCESS", payload: response.data });

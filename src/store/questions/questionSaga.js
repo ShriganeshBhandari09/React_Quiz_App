@@ -1,10 +1,14 @@
 import axios from "axios";
 import { all, call, fork, put, takeLatest } from "redux-saga/effects";
+import { QUESTION_API_ENDPOINTS } from "./questionConstants";
+import { API_URL } from "../../config";
 
-const apiUrl = "http://localhost:5000/questions";
 function* fetchQuestions() {
   try {
-    const response = yield call(axios.get, apiUrl);
+    const response = yield call(
+      axios.get,
+      `${QUESTION_API_ENDPOINTS.questionAPI}`
+    );
     yield put({ type: "FETCH_QUESTIONS_SUCCESS", payload: response.data });
   } catch (error) {
     yield put({ type: "FETCH_QUESTIONS_ERROR", payload: error.message });
@@ -13,7 +17,11 @@ function* fetchQuestions() {
 
 function* addQuestions(action) {
   try {
-    const response = yield call(axios.post, apiUrl, action.payload);
+    const response = yield call(
+      axios.post,
+      `${QUESTION_API_ENDPOINTS.questionAPI}`,
+      action.payload
+    );
     yield put({ type: "ADD_QUESTION_SUCCESS", payload: response.data });
     console.log("ADD question running");
   } catch (error) {
@@ -26,7 +34,7 @@ function* updateQuestion(action) {
   try {
     const response = yield call(
       axios.put,
-      `${apiUrl}/${action.payload.id}`,
+      `${QUESTION_API_ENDPOINTS.questionAPI}/${action.payload.id}`,
       action.payload
     );
     yield put({ type: "UPDATE_QUESTION_SUCCESS", payload: response.data });
@@ -39,7 +47,11 @@ function* updateQuestion(action) {
 
 function* deleteQuestion(action) {
   try {
-    yield call(axios.delete, `${apiUrl}/${action.payload}`, action.payload);
+    yield call(
+      axios.delete,
+      `${QUESTION_API_ENDPOINTS.questionAPI}/${action.payload}`,
+      action.payload
+    );
     yield put({ type: "DELETE_QUESTION_SUCCESS", payload: action.payload });
     console.log("Delete question running");
   } catch (error) {

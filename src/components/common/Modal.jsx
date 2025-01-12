@@ -55,6 +55,7 @@ const AddQuestionModal = ({ closeModal }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addQuestionRequest({ question, options, answer }));
+    closeModal()
   };
 
   return (

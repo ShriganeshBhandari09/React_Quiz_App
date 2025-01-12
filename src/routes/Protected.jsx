@@ -8,5 +8,5 @@ const Protected = ({ children }) => {
   }
   return children;
 };
-
+Protected.propTypes;
 export default Protected;
