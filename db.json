@@ -33,18 +33,26 @@
   ],
   "questions": [
     {
+      "id": "5db5",
       "question": "Which tag is used to define a hyperlink in HTML?",
-      "options": ["<a>", "<link>", "<href>", "<url>"],
-      "answer": "<a>",
-      "explanation": "The <a> tag (anchor tag) is used to create hyperlinks in HTML, allowing navigation between pages.",
-      "id": "5db5"
+      "options": [
+        "<a>",
+        "<link>",
+        "<href>",
+        "<url>"
+      ],
+      "answer": "<a>"
     },
     {
+      "id": "7f49",
       "question": "What is the default file extension for HTML files?",
-      "options": [".html", ".htm", ".xml", ".doc"],
-      "answer": ".html",
-      "explanation": "HTML files commonly use the .html extension. The .htm extension is also supported but less frequently used.",
-      "id": "7f49"
+      "options": [
+        ".html",
+        ".htm",
+        ".xml",
+        ".doc"
+      ],
+      "answer": ".html"
     },
     {
       "question": "What does CSS stand for?",
@@ -60,14 +68,24 @@
     },
     {
       "question": "Which property is used to change the background color of an element?",
-      "options": ["color", "background", "background-color", "bgcolor"],
+      "options": [
+        "color",
+        "background",
+        "background-color",
+        "bgcolor"
+      ],
       "answer": "background-color",
       "explanation": "The background-color property in CSS is used to set the background color of an HTML element.",
       "id": "477f"
     },
     {
       "question": "How do you select an element with the ID 'header' in CSS?",
-      "options": ["#header", ".header", "header", "*header"],
+      "options": [
+        "#header",
+        ".header",
+        "header",
+        "*header"
+      ],
       "answer": "#header",
       "explanation": "In CSS, IDs are selected using the '#' symbol followed by the ID name. For example, #header targets the element with the ID 'header'.",
       "id": "c89a"
@@ -146,7 +164,12 @@
     },
     {
       "question": "Which method is used to fetch data in React?",
-      "options": ["fetch()", "getData()", "axios()", "requestData()"],
+      "options": [
+        "fetch()",
+        "getData()",
+        "axios()",
+        "requestData()"
+      ],
       "answer": "fetch()",
       "explanation": "'fetch()' is a built-in JavaScript function for making HTTP requests, commonly used for fetching data in React.",
       "id": "fefe"
@@ -165,7 +188,12 @@
     },
     {
       "question": "Which property is used to make text bold in CSS?",
-      "options": ["font-weight", "font-bold", "text-weight", "text-bold"],
+      "options": [
+        "font-weight",
+        "font-bold",
+        "text-weight",
+        "text-bold"
+      ],
       "answer": "font-weight",
       "explanation": "The 'font-weight' property in CSS is used to set the weight (or boldness) of the text.",
       "id": "e566"
@@ -184,7 +212,12 @@
     },
     {
       "question": "Which event is fired when a user presses a key on the keyboard in JavaScript?",
-      "options": ["onkeypress", "onkeydown", "onkeyup", "oninput"],
+      "options": [
+        "onkeypress",
+        "onkeydown",
+        "onkeyup",
+        "oninput"
+      ],
       "answer": "onkeydown",
       "explanation": "'onkeydown' is triggered when a key is pressed down, making it ideal for detecting key presses in real-time.",
       "id": "db31"
@@ -215,7 +248,12 @@
     },
     {
       "question": "Which of the following is NOT a valid JavaScript data type?",
-      "options": ["Undefined", "Boolean", "Number", "Element"],
+      "options": [
+        "Undefined",
+        "Boolean",
+        "Number",
+        "Element"
+      ],
       "answer": "Element",
       "explanation": "'Element' is not a JavaScript data type. The valid data types are String, Number, Boolean, Object, Undefined, Null, and Symbol.",
       "id": "5fbd"
@@ -226,8 +264,8 @@
       "id": "e588",
       "fullName": "Shriganesh Bhandari",
       "email": "shriganesh.bhandari693@gmail.com",
-      "marks": 80,
-      "noOfTimeTestGiven": 1,
+      "marks": 90,
+      "noOfTimeTestGiven": 2,
       "tests": [
         {
           "testNo": 1,
@@ -236,7 +274,12 @@
               "question": "Which event is fired when a user presses a key on the keyboard in JavaScript?",
               "selectedAnswer": "onkeydown",
               "correctAnswer": "onkeydown",
-              "options": ["onkeypress", "onkeydown", "onkeyup", "oninput"]
+              "options": [
+                "onkeypress",
+                "onkeydown",
+                "onkeyup",
+                "oninput"
+              ]
             },
             {
               "question": "What does CSS stand for?",
@@ -264,7 +307,12 @@
               "question": "Which property is used to change the background color of an element?",
               "selectedAnswer": "background-color",
               "correctAnswer": "background-color",
-              "options": ["color", "background", "background-color", "bgcolor"]
+              "options": [
+                "color",
+                "background",
+                "background-color",
+                "bgcolor"
+              ]
             },
             {
               "question": "What is the purpose of the 'key' prop in React lists?",
@@ -281,7 +329,12 @@
               "question": "Which of the following is NOT a valid JavaScript data type?",
               "selectedAnswer": "Undefined",
               "correctAnswer": "Element",
-              "options": ["Undefined", "Boolean", "Number", "Element"]
+              "options": [
+                "Undefined",
+                "Boolean",
+                "Number",
+                "Element"
+              ]
             },
             {
               "question": "What does HTML stand for?",
@@ -332,6 +385,244 @@
           "date": "12-1-2025",
           "time": "10:43:38",
           "correctAnswers": 8
+        },
+        {
+          "testNo": 2,
+          "selectedAnswers": [
+            {
+              "question": "Which property is used to make text bold in CSS?",
+              "selectedAnswer": "font-weight",
+              "correctAnswer": "font-weight",
+              "options": [
+                "font-weight",
+                "font-bold",
+                "text-weight",
+                "text-bold"
+              ]
+            },
+            {
+              "question": "What is the default file extension for HTML files?",
+              "selectedAnswer": ".html",
+              "correctAnswer": ".html",
+              "options": [
+                ".html",
+                ".htm",
+                ".xml",
+                ".doc"
+              ]
+            },
+            {
+              "question": "How do you select an element with the ID 'header' in CSS?",
+              "selectedAnswer": "#header",
+              "correctAnswer": "#header",
+              "options": [
+                "#header",
+                ".header",
+                "header",
+                "*header"
+              ]
+            },
+            {
+              "question": "What does 'useState' in React do?",
+              "selectedAnswer": "Creates a state variable.",
+              "correctAnswer": "Creates a state variable.",
+              "options": [
+                "Creates a state variable.",
+                "Handles side effects.",
+                "Renders components conditionally.",
+                "None of the above."
+              ]
+            },
+            {
+              "question": "What does CSS stand for?",
+              "selectedAnswer": "Cascading Style Sheets",
+              "correctAnswer": "Cascading Style Sheets",
+              "options": [
+                "Creative Style Sheets",
+                "Cascading Style Sheets",
+                "Computer Style Sheets",
+                "Colorful Style Sheets"
+              ]
+            },
+            {
+              "question": "What is the difference between 'state' and 'props' in React?",
+              "selectedAnswer": "'state' is managed within the component, 'props' are passed from parent to child.",
+              "correctAnswer": "'state' is managed within the component, 'props' are passed from parent to child.",
+              "options": [
+                "'state' is managed within the component, 'props' are passed from parent to child.",
+                "'props' are managed within the component, 'state' is passed from parent to child.",
+                "Both 'state' and 'props' are read-only.",
+                "'state' is immutable, 'props' are mutable."
+              ]
+            },
+            {
+              "question": "What does 'DOM' stand for in JavaScript?",
+              "selectedAnswer": "Document Object Model",
+              "correctAnswer": "Document Object Model",
+              "options": [
+                "Document Object Model",
+                "Data Object Model",
+                "Document Oriented Module",
+                "Data Oriented Module"
+              ]
+            },
+            {
+              "question": "Which of the following is NOT a valid JavaScript data type?",
+              "selectedAnswer": "Undefined",
+              "correctAnswer": "Element",
+              "options": [
+                "Undefined",
+                "Boolean",
+                "Number",
+                "Element"
+              ]
+            },
+            {
+              "question": "Which method is used to fetch data in React?",
+              "selectedAnswer": "fetch()",
+              "correctAnswer": "fetch()",
+              "options": [
+                "fetch()",
+                "getData()",
+                "axios()",
+                "requestData()"
+              ]
+            },
+            {
+              "question": "What is the difference between 'let' and 'var'?",
+              "selectedAnswer": "'let' is block-scoped, 'var' is function-scoped.",
+              "correctAnswer": "'let' is block-scoped, 'var' is function-scoped.",
+              "options": [
+                "'let' is block-scoped, 'var' is function-scoped.",
+                "'var' is block-scoped, 'let' is function-scoped.",
+                "Both are function-scoped.",
+                "Both are block-scoped."
+              ]
+            }
+          ],
+          "marks": 90,
+          "date": "12-1-2025",
+          "time": "14:17:21",
+          "correctAnswers": 9
+        },
+        {
+          "testNo": 3,
+          "selectedAnswers": [
+            {
+              "question": "What does CSS stand for?",
+              "selectedAnswer": "Creative Style Sheets",
+              "correctAnswer": "Cascading Style Sheets",
+              "options": [
+                "Creative Style Sheets",
+                "Cascading Style Sheets",
+                "Computer Style Sheets",
+                "Colorful Style Sheets"
+              ]
+            },
+            {
+              "question": "What does the <meta> tag do in HTML?",
+              "selectedAnswer": "Defines metadata about the document.",
+              "correctAnswer": "Defines metadata about the document.",
+              "options": [
+                "Defines metadata about the document.",
+                "Creates links to other pages.",
+                "Formats text in a specific way.",
+                "Defines styles for the page."
+              ]
+            },
+            {
+              "question": "What is the difference between 'state' and 'props' in React?",
+              "selectedAnswer": "'state' is managed within the component, 'props' are passed from parent to child.",
+              "correctAnswer": "'state' is managed within the component, 'props' are passed from parent to child.",
+              "options": [
+                "'state' is managed within the component, 'props' are passed from parent to child.",
+                "'props' are managed within the component, 'state' is passed from parent to child.",
+                "Both 'state' and 'props' are read-only.",
+                "'state' is immutable, 'props' are mutable."
+              ]
+            },
+            {
+              "question": "What does 'this' keyword refer to in JavaScript?",
+              "selectedAnswer": "The current object context.",
+              "correctAnswer": "The current object context.",
+              "options": [
+                "The current object context.",
+                "The global object.",
+                "The parent object.",
+                "None of the above."
+              ]
+            },
+            {
+              "question": "Which method is used to fetch data in React?",
+              "selectedAnswer": "fetch()",
+              "correctAnswer": "fetch()",
+              "options": [
+                "fetch()",
+                "getData()",
+                "axios()",
+                "requestData()"
+              ]
+            },
+            {
+              "question": "What is the purpose of the 'key' prop in React lists?",
+              "selectedAnswer": "To uniquely identify a list item.",
+              "correctAnswer": "To uniquely identify a list item.",
+              "options": [
+                "To uniquely identify a list item.",
+                "To style list items dynamically.",
+                "To create a reference to a DOM element.",
+                "To sort the list items automatically."
+              ]
+            },
+            {
+              "question": "Which event is fired when a user presses a key on the keyboard in JavaScript?",
+              "selectedAnswer": "onkeydown",
+              "correctAnswer": "onkeydown",
+              "options": [
+                "onkeypress",
+                "onkeydown",
+                "onkeyup",
+                "oninput"
+              ]
+            },
+            {
+              "question": "Which property is used to make text bold in CSS?",
+              "selectedAnswer": "font-weight",
+              "correctAnswer": "font-weight",
+              "options": [
+                "font-weight",
+                "font-bold",
+                "text-weight",
+                "text-bold"
+              ]
+            },
+            {
+              "question": "What does 'JSON.stringify()' do in JavaScript?",
+              "selectedAnswer": "Converts a JavaScript object into a JSON string.",
+              "correctAnswer": "Converts a JavaScript object into a JSON string.",
+              "options": [
+                "Parses a JSON string into a JavaScript object.",
+                "Converts a JavaScript object into a JSON string.",
+                "Converts a JavaScript array into a string.",
+                "None of the above."
+              ]
+            },
+            {
+              "question": "Which tag is used to define a hyperlink in HTML?",
+              "selectedAnswer": "<a>",
+              "correctAnswer": "<a>",
+              "options": [
+                "<a>",
+                "<link>",
+                "<href>",
+                "<url>"
+              ]
+            }
+          ],
+          "marks": 90,
+          "date": "12-1-2025",
+          "time": "18:32:50",
+          "correctAnswers": 9
         }
       ]
     },
@@ -360,13 +651,23 @@
               "question": "Which event is fired when a user presses a key on the keyboard in JavaScript?",
               "selectedAnswer": "onkeydown",
               "correctAnswer": "onkeydown",
-              "options": ["onkeypress", "onkeydown", "onkeyup", "oninput"]
+              "options": [
+                "onkeypress",
+                "onkeydown",
+                "onkeyup",
+                "oninput"
+              ]
             },
             {
               "question": "How do you select an element with the ID 'header' in CSS?",
               "selectedAnswer": "#header",
               "correctAnswer": "#header",
-              "options": ["#header", ".header", "header", "*header"]
+              "options": [
+                "#header",
+                ".header",
+                "header",
+                "*header"
+              ]
             },
             {
               "question": "Which property is used to make text bold in CSS?",
@@ -394,7 +695,12 @@
               "question": "Which of the following is NOT a valid JavaScript data type?",
               "selectedAnswer": "Element",
               "correctAnswer": "Element",
-              "options": ["Undefined", "Boolean", "Number", "Element"]
+              "options": [
+                "Undefined",
+                "Boolean",
+                "Number",
+                "Element"
+              ]
             },
             {
               "question": "What does 'DOM' stand for in JavaScript?",
@@ -422,13 +728,23 @@
               "question": "Which property is used to change the background color of an element?",
               "selectedAnswer": "background-color",
               "correctAnswer": "background-color",
-              "options": ["color", "background", "background-color", "bgcolor"]
+              "options": [
+                "color",
+                "background",
+                "background-color",
+                "bgcolor"
+              ]
             },
             {
               "question": "What is the default file extension for HTML files?",
               "selectedAnswer": ".html",
               "correctAnswer": ".html",
-              "options": [".html", ".htm", ".xml", ".doc"]
+              "options": [
+                ".html",
+                ".htm",
+                ".xml",
+                ".doc"
+              ]
             }
           ],
           "marks": 90,
@@ -474,19 +790,34 @@
               "question": "How do you select an element with the ID 'header' in CSS?",
               "selectedAnswer": "#header",
               "correctAnswer": "#header",
-              "options": ["#header", ".header", "header", "*header"]
+              "options": [
+                "#header",
+                ".header",
+                "header",
+                "*header"
+              ]
             },
             {
               "question": "Which event is fired when a user presses a key on the keyboard in JavaScript?",
               "selectedAnswer": "onkeydown",
               "correctAnswer": "onkeydown",
-              "options": ["onkeypress", "onkeydown", "onkeyup", "oninput"]
+              "options": [
+                "onkeypress",
+                "onkeydown",
+                "onkeyup",
+                "oninput"
+              ]
             },
             {
               "question": "Which tag is used to define a hyperlink in HTML?",
               "selectedAnswer": "<a>",
               "correctAnswer": "<a>",
-              "options": ["<a>", "<link>", "<href>", "<url>"]
+              "options": [
+                "<a>",
+                "<link>",
+                "<href>",
+                "<url>"
+              ]
             },
             {
               "question": "What does CSS stand for?",
@@ -503,7 +834,12 @@
               "question": "Which property is used to change the background color of an element?",
               "selectedAnswer": "background-color",
               "correctAnswer": "background-color",
-              "options": ["color", "background", "background-color", "bgcolor"]
+              "options": [
+                "color",
+                "background",
+                "background-color",
+                "bgcolor"
+              ]
             },
             {
               "question": "What does 'this' keyword refer to in JavaScript?",
@@ -582,7 +918,12 @@
               "question": "What is the default file extension for HTML files?",
               "selectedAnswer": ".html",
               "correctAnswer": ".html",
-              "options": [".html", ".htm", ".xml", ".doc"]
+              "options": [
+                ".html",
+                ".htm",
+                ".xml",
+                ".doc"
+              ]
             },
             {
               "question": "What is the purpose of the 'useEffect' hook in React?",
@@ -685,7 +1026,12 @@
               "question": "Which event is fired when a user presses a key on the keyboard in JavaScript?",
               "selectedAnswer": "onkeydown",
               "correctAnswer": "onkeydown",
-              "options": ["onkeypress", "onkeydown", "onkeyup", "oninput"]
+              "options": [
+                "onkeypress",
+                "onkeydown",
+                "onkeyup",
+                "oninput"
+              ]
             },
             {
               "question": "What is the purpose of the 'key' prop in React lists?",
@@ -713,25 +1059,45 @@
               "question": "Which property is used to change the background color of an element?",
               "selectedAnswer": "background-color",
               "correctAnswer": "background-color",
-              "options": ["color", "background", "background-color", "bgcolor"]
+              "options": [
+                "color",
+                "background",
+                "background-color",
+                "bgcolor"
+              ]
             },
             {
               "question": "What is the default file extension for HTML files?",
               "selectedAnswer": ".html",
               "correctAnswer": ".html",
-              "options": [".html", ".htm", ".xml", ".doc"]
+              "options": [
+                ".html",
+                ".htm",
+                ".xml",
+                ".doc"
+              ]
             },
             {
               "question": "Which of the following is NOT a valid JavaScript data type?",
               "selectedAnswer": "Element",
               "correctAnswer": "Element",
-              "options": ["Undefined", "Boolean", "Number", "Element"]
+              "options": [
+                "Undefined",
+                "Boolean",
+                "Number",
+                "Element"
+              ]
             },
             {
               "question": "Which method is used to fetch data in React?",
               "selectedAnswer": "fetch()",
               "correctAnswer": "fetch()",
-              "options": ["fetch()", "getData()", "axios()", "requestData()"]
+              "options": [
+                "fetch()",
+                "getData()",
+                "axios()",
+                "requestData()"
+              ]
             },
             {
               "question": "What is the difference between 'let' and 'var'?",

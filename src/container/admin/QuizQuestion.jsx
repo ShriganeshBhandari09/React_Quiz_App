@@ -5,19 +5,13 @@ import { fetchQuestionsRequest } from "../../store/questions/questionActions";
 import { FaEye } from "react-icons/fa";
 import { FaPencil } from "react-icons/fa6";
 import { FaTrash } from "react-icons/fa";
-import ViewQuestionModal from "../../components/Modals/ViewQuestionModal";
 import SideBar from "../../components/SideBar";
-import AddQuestionModal from "../../components/Modals/AddQuestionModal";
-import UpdateQuestionModal from "../../components/Modals/UpdateQuestionModal";
-import DeleteQuestionModal from "../../components/Modals/DeleteQuestionModal";
+import Modal from "../../components/common/Modal";
 
 const QuizQuestion = () => {
   const [sidebar, setSideBar] = useState(true);
   const [selectedQuestion, setSelectedQuestion] = useState(null);
-  const [viewQuestionModal, setViewQuestionModal] = useState(false);
-  const [addQuestionModal, setAddQuestionModal] = useState(false);
-  const [updateQuestionModal, setUpdateQuestionModal] = useState(false);
-  const [deleteQuestionModal, setDeleteQuestionModal] = useState(false);
+  const [modalType, setModalType] = useState(null);
 
   const questions = useSelector((state) => state.question.questions);
   const dispatch = useDispatch();
@@ -29,19 +23,27 @@ const QuizQuestion = () => {
     return <div className="loader"></div>;
   }
 
-  const viewQuestion = (question) => {
-    setSelectedQuestion(question);
-    setViewQuestionModal(true);
+  const addQuestionModal = (type) => {
+    setModalType(type);
   };
 
-  const updateQuestion = (question) => {
+  const viewQuestion = (question, type) => {
     setSelectedQuestion(question);
-    setUpdateQuestionModal(!updateQuestionModal);
+    setModalType(type);
   };
 
-  const deleteQuestion = (question) => {
+  const closeModal = () => {
+    setModalType(null);
+  };
+
+  const updateQuestion = (question, type) => {
     setSelectedQuestion(question);
-    setDeleteQuestionModal(!deleteQuestionModal);
+    setModalType(type);
+  };
+
+  const deleteQuestion = (question, type) => {
+    setSelectedQuestion(question);
+    setModalType(type);
   };
 
   return (
@@ -55,7 +57,7 @@ const QuizQuestion = () => {
             <button
               type="button"
               className="add-question-btn"
-              onClick={() => setAddQuestionModal(true)}
+              onClick={() => addQuestionModal("add-question-modal")}
             >
               Add New Question
             </button>
@@ -75,13 +77,25 @@ const QuizQuestion = () => {
                   <td>{question.question}</td>
                   <td className="table-button">
                     <div className="table-button-div">
-                      <button onClick={() => viewQuestion(question)}>
+                      <button
+                        onClick={() =>
+                          viewQuestion(question, "view-question-modal")
+                        }
+                      >
                         <FaEye />
                       </button>
-                      <button onClick={() => updateQuestion(question)}>
+                      <button
+                        onClick={() =>
+                          updateQuestion(question, "update-question-modal")
+                        }
+                      >
                         <FaPencil />
                       </button>
-                      <button onClick={() => deleteQuestion(question)}>
+                      <button
+                        onClick={() =>
+                          deleteQuestion(question, "delete-question-modal")
+                        }
+                      >
                         <FaTrash />
                       </button>
                     </div>
@@ -92,28 +106,11 @@ const QuizQuestion = () => {
           </table>
         </section>
       </main>
-      {viewQuestionModal && (
-        <ViewQuestionModal
+      {modalType && (
+        <Modal
+          modalType={modalType}
+          closeModal={closeModal}
           selectedQuestion={selectedQuestion}
-          setViewQuestionModal={setViewQuestionModal}
-        />
-      )}
-
-      {addQuestionModal && (
-        <AddQuestionModal setAddQuestionModal={setAddQuestionModal} />
-      )}
-
-      {updateQuestionModal && (
-        <UpdateQuestionModal
-          selectedQuestion={selectedQuestion}
-          setUpdateQuestionModal={setUpdateQuestionModal}
-        />
-      )}
-
-      {deleteQuestionModal && (
-        <DeleteQuestionModal
-          selectedQuestion={selectedQuestion}
-          setDeleteQuestionModal={setDeleteQuestionModal}
         />
       )}
     </div>

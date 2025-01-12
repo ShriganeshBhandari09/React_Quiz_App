@@ -10,6 +10,17 @@ import AdminQuestionsPage from "./pages/Admin/AdminQuestionsPage";
 import AdminUsersPage from "./pages/Admin/AdminUsersPage";
 import UserHistoryPage from "./pages/Admin/UserHistoryPage";
 import UserTestListPage from "./pages/Admin/UserTestListPage";
+import Protected from "./routes/Protected";
+import PageNotFound from "./pages/PageNotFound";
+
+// function PrivateRoute () {
+//   if (isAuthenticated) {
+//     <Outlet />
+//   }
+
+//   return <Navigate to="/login" />
+
+// }
 
 function App() {
   // private routing & public routing
@@ -17,20 +28,72 @@ function App() {
     <Routes>
       <Route path={"/"} element={<LoginPage />} />
       <Route path={"/signup"} element={<SignupPage />} />
-      <Route path={"/dashboard"} element={<DashboardPage />} />
-      <Route path={"/quiz-page"} element={<QuizQestionPage />} />
-      <Route path={"/leaderboard"} element={<LeaderboardPage />} />
-      <Route path={"/admin-dashboard"} element={<AdminDashboardPage />} />
-      <Route path={"/quiz-questions"} element={<AdminQuestionsPage />} />
-      <Route path={"/users"} element={<AdminUsersPage />} />
+      <Route
+        path={"/dashboard"}
+        element={
+          <Protected>
+            <DashboardPage />
+          </Protected>
+        }
+      />
+      <Route
+        path={"/quiz-page"}
+        element={
+          <Protected>
+            <QuizQestionPage />
+          </Protected>
+        }
+      />
+      <Route
+        path={"/leaderboard"}
+        element={
+          <Protected>
+            <LeaderboardPage />
+          </Protected>
+        }
+      />
+      <Route
+        path={"/admin-dashboard"}
+        element={
+          <Protected>
+            <AdminDashboardPage />
+          </Protected>
+        }
+      />
+      <Route
+        path={"/quiz-questions"}
+        element={
+          <Protected>
+            <AdminQuestionsPage />
+          </Protected>
+        }
+      />
+      <Route
+        path={"/users"}
+        element={
+          <Protected>
+            <AdminUsersPage />
+          </Protected>
+        }
+      />
       <Route
         path="/users-history/:index/:fullName"
-        element={<UserHistoryPage />}
+        element={
+          <Protected>
+            <UserHistoryPage />
+          </Protected>
+        }
       />
       <Route
         path="/users-testlist/:index/:fullName"
-        element={<UserTestListPage />}
+        element={
+          <Protected>
+            <UserTestListPage />
+          </Protected>
+        }
       />
+
+      <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
 }

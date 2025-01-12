@@ -21,7 +21,7 @@ const Login = () => {
 
     if (email === "admin@gmail.com" && password === "admin") {
       localStorage.setItem(
-        "adminLoggedIn",
+        "loggedInUser",
         JSON.stringify({ fullName: "Admin", email: email, password: password })
       );
       navigate("/admin-dashboard");

@@ -18,7 +18,7 @@ const AdminNavbar = ({ sidebar, setSideBar }) => {
 
   useEffect(() => {
     const adminLoggedIn =
-      JSON.parse(localStorage.getItem("adminLoggedIn")) || [];
+      JSON.parse(localStorage.getItem("loggedInUser")) || [];
     setAdminLoggedIn(adminLoggedIn);
     setImgSrc(
       `https://ui-avatars.com/api/?name=${adminLoggedIn.fullName}&background=F3BD00&color=000`
