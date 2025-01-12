@@ -1,7 +1,7 @@
 import axios from "axios";
 import { all, call, fork, put, takeLatest } from "redux-saga/effects";
 
-const apiUrl = "https://quiz-app-json-server.onrender.com/questions";
+const apiUrl = "http://localhost:5000/questions";
 function* fetchQuestions() {
   try {
     const response = yield call(axios.get, apiUrl);
@@ -31,11 +31,9 @@ function* updateQuestion(action) {
     );
     yield put({ type: "UPDATE_QUESTION_SUCCESS", payload: response.data });
     console.log("Update question running");
-
   } catch (error) {
     yield put({ type: "UPDATE_QUESTION_ERROR", payload: error.message });
     console.log("Update question Error");
-
   }
 }
 

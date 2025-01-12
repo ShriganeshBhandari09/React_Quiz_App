@@ -12,6 +12,7 @@ import UserHistoryPage from "./pages/Admin/UserHistoryPage";
 import UserTestListPage from "./pages/Admin/UserTestListPage";
 
 function App() {
+  // private routing & public routing
   return (
     <Routes>
       <Route path={"/"} element={<LoginPage />} />
