@@ -1,25 +1,23 @@
-import axios from "axios";
 import { all, call, fork, put, takeLatest } from "redux-saga/effects";
-import { QUESTION_API_ENDPOINTS } from "./questionConstants";
-import { API_URL } from "../../config";
+import http from "../../libraries/axios";
+import { ApiConstants } from "../../constants/ApiConstants";
 
 function* fetchQuestions() {
   try {
-    const response = yield call(
-      axios.get,
-      `${QUESTION_API_ENDPOINTS.questionAPI}`
-    );
+    const response = yield call(http.get, `${ApiConstants.questionAPI}`);
     yield put({ type: "FETCH_QUESTIONS_SUCCESS", payload: response.data });
+    console.log("Success");
   } catch (error) {
     yield put({ type: "FETCH_QUESTIONS_ERROR", payload: error.message });
+    console.log("Error");
   }
 }
 
 function* addQuestions(action) {
   try {
     const response = yield call(
-      axios.post,
-      `${QUESTION_API_ENDPOINTS.questionAPI}`,
+      http.post,
+      `${ApiConstants.questionAPI}`,
       action.payload
     );
     yield put({ type: "ADD_QUESTION_SUCCESS", payload: response.data });
@@ -33,8 +31,8 @@ function* addQuestions(action) {
 function* updateQuestion(action) {
   try {
     const response = yield call(
-      axios.put,
-      `${QUESTION_API_ENDPOINTS.questionAPI}/${action.payload.id}`,
+      http.put,
+      `${ApiConstants.questionAPI}/${action.payload.id}`,
       action.payload
     );
     yield put({ type: "UPDATE_QUESTION_SUCCESS", payload: response.data });
@@ -48,8 +46,8 @@ function* updateQuestion(action) {
 function* deleteQuestion(action) {
   try {
     yield call(
-      axios.delete,
-      `${QUESTION_API_ENDPOINTS.questionAPI}/${action.payload}`,
+      http.delete,
+      `${ApiConstants.questionAPI}/${action.payload}`,
       action.payload
     );
     yield put({ type: "DELETE_QUESTION_SUCCESS", payload: action.payload });

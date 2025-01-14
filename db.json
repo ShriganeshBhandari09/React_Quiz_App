@@ -235,6 +235,7 @@
       "id": "71e4"
     },
     {
+      "id": "5075",
       "question": "What is the difference between 'state' and 'props' in React?",
       "options": [
         "'state' is managed within the component, 'props' are passed from parent to child.",
@@ -242,21 +243,18 @@
         "Both 'state' and 'props' are read-only.",
         "'state' is immutable, 'props' are mutable."
       ],
-      "answer": "'state' is managed within the component, 'props' are passed from parent to child.",
-      "explanation": "'state' is local to the component and can be changed, whereas 'props' are passed from parent to child and are immutable.",
-      "id": "5075"
+      "answer": "'state' is managed within the component, 'props' are passed from parent to child."
     },
     {
-      "question": "Which of the following is NOT a valid JavaScript data type?",
+      "id": "6c3a",
+      "question": "What does HTML stand for?",
       "options": [
-        "Undefined",
-        "Boolean",
-        "Number",
-        "Element"
+        "HyperText Markup Language",
+        "Home Tool Markup Language",
+        "Hyperlink and Text Markup Language",
+        "HyperText Machine Language"
       ],
-      "answer": "Element",
-      "explanation": "'Element' is not a JavaScript data type. The valid data types are String, Number, Boolean, Object, Undefined, Null, and Symbol.",
-      "id": "5fbd"
+      "answer": "HyperText Markup Language"
     }
   ],
   "userTests": [

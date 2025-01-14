@@ -1,11 +1,10 @@
 import { all, fork, put, call, takeLatest } from "redux-saga/effects";
-
-import axios from "axios";
-import { API_ENDPOINTS } from "./userConstant";
+import http from "../../libraries/axios";
+import { ApiConstants } from "../../constants/ApiConstants";
 
 function* fetchUsers() {
   try {
-    const response = yield call(axios.get, `${API_ENDPOINTS.fetchAPI}`);
+    const response = yield call(http.get, `${ApiConstants.usersAPI}`);
     yield put({ type: "FETCH_USER_SUCCESS", payload: response.data });
   } catch (error) {
     yield put({ type: "FETCH_USER_ERROR", payload: error.message });
@@ -14,7 +13,11 @@ function* fetchUsers() {
 
 function* addUser(action) {
   try {
-    const response = yield call(axios.post, `${API_ENDPOINTS.fetchAPI}`, action.payload);
+    const response = yield call(
+      http.post,
+      `${ApiConstants.usersAPI}`,
+      action.payload
+    );
     yield put({ type: "ADD_USER_SUCCESS", payload: response.data });
   } catch (error) {
     yield put({ type: "ADD_USER_ERROR", payload: error.message });
