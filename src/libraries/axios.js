@@ -16,7 +16,6 @@ instance.interceptors.request.use(
     config.headers = {
       Accept: "application/json",
       "Content-Type": "application/json",
-      "Dummy" :"Shriganesh"
     };
     return config;
   },
