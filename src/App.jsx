@@ -10,10 +10,11 @@ import AdminQuestionsPage from "./pages/Admin/AdminQuestionsPage";
 import AdminUsersPage from "./pages/Admin/AdminUsersPage";
 import UserHistoryPage from "./pages/Admin/UserHistoryPage";
 import UserTestListPage from "./pages/Admin/UserTestListPage";
-import Protected from "./routes/Protected";
+// import Protected from "./routes/Protected";
 import PageNotFound from "./pages/PageNotFound";
 import ProtectedRoutes from "./routes/ProtectedRoutes";
 import PublicRoutes from "./routes/PublicRoutes";
+import { ToastContainer } from "react-toastify";
 
 // function PrivateRoute () {
 //   if (isAuthenticated) {
@@ -27,30 +28,32 @@ import PublicRoutes from "./routes/PublicRoutes";
 function App() {
   // private routing & public routing
   return (
-    <Routes>
-      <Route element={<PublicRoutes />}>
-        <Route path={"/"} element={<LoginPage />} />
-        <Route path={"/signup"} element={<SignupPage />} />
-      </Route>
-      <Route path="/" element={<ProtectedRoutes />}>
-        <Route path="/dashboard" element={<DashboardPage />} />
-        <Route path="/quiz-page" element={<QuizQestionPage />} />
-        <Route path="/leaderboard" element={<LeaderboardPage />} />
-        <Route path="/admin-dashboard" element={<AdminDashboardPage />} />
-        <Route path="/quiz-questions" element={<AdminQuestionsPage />} />
-        <Route path="/users" element={<AdminUsersPage />} />
-        <Route
-          path="/users-history/:index/:fullName"
-          element={<UserHistoryPage />}
-        />
-        <Route
-          path="/users-testlist/:index/:fullName"
-          element={<UserTestListPage />}
-        />
-      </Route>
-      <Route path="*" element={<PageNotFound />} />
+    <>
+      <ToastContainer />
+      <Routes>
+        <Route element={<PublicRoutes />}>
+          <Route path={"/"} element={<LoginPage />} />
+          <Route path={"/signup"} element={<SignupPage />} />
+        </Route>
+        <Route path="/" element={<ProtectedRoutes />}>
+          <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/quiz-page" element={<QuizQestionPage />} />
+          <Route path="/leaderboard" element={<LeaderboardPage />} />
+          <Route path="/admin-dashboard" element={<AdminDashboardPage />} />
+          <Route path="/quiz-questions" element={<AdminQuestionsPage />} />
+          <Route path="/users" element={<AdminUsersPage />} />
+          <Route
+            path="/users-history/:index/:fullName"
+            element={<UserHistoryPage />}
+          />
+          <Route
+            path="/users-testlist/:index/:fullName"
+            element={<UserTestListPage />}
+          />
+        </Route>
+        <Route path="*" element={<PageNotFound />} />
 
-      {/* <Route
+        {/* <Route
         path={"/dashboard"}
         element={
           <Protected>
@@ -114,7 +117,8 @@ function App() {
           </Protected>
         }
       /> */}
-    </Routes>
+      </Routes>
+    </>
   );
 }
 

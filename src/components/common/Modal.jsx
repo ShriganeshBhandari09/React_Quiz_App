@@ -6,6 +6,7 @@ import {
   deleteQuestionRequest,
 } from "../../store/questions/questionActions";
 import exclamation from "../../assets/exclamation.png";
+import { toast } from "react-toastify";
 
 const ViewQuestionModal = ({ selectedQuestion, closeModal }) => {
   return (
@@ -55,7 +56,8 @@ const AddQuestionModal = ({ closeModal }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addQuestionRequest({ question, options, answer }));
-    closeModal()
+    closeModal();
+    toast.success("Added Question Sucessfully");
   };
 
   return (
@@ -172,6 +174,7 @@ const UpdateQuestionModal = ({ selectedQuestion, closeModal }) => {
       })
     );
     closeModal();
+    toast.success("Updated Question Sucessfully");
   };
 
   return (
@@ -272,6 +275,7 @@ const DeleteQuestionModal = ({ selectedQuestion, closeModal }) => {
   const handleDelete = (id) => {
     dispatch(deleteQuestionRequest(id));
     closeModal();
+    toast.success("Deleted Question Sucessfully");
   };
 
   console.log(selectedQuestion.id);

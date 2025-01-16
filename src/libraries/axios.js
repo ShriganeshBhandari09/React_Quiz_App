@@ -2,6 +2,7 @@ import axios from "axios";
 
 import qs from "qs";
 import { API_URL } from "../config";
+import { toast } from "react-toastify";
 const apiUrl = API_URL;
 
 const instance = axios.create({
@@ -13,24 +14,27 @@ const instance = axios.create({
 
 instance.interceptors.request.use(
   (config) => {
-    config.headers = {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    };
+    // config.headers = {
+    //   Accept: "application/json",
+    //   "Content-Type": "application/json",
+    // };
     return config;
   },
-  (error) => Promise.reject(error)
+  (error) => Promise.reject(toast.error(error.message))
 );
 
 instance.interceptors.response.use(
   (response) => {
     if (response.status === 200) {
       return response;
+    }
+    if (response.status === 201) {
+      return response;
     } else {
-      return Promise.reject({ message: 400 });
+      return Promise.reject(toast.error("Data Fetching Failed"));
     }
   },
-  (error) => Promise.reject(error)
+  (error) => Promise.reject(toast.error(error.message))
 );
 
 const http = instance;

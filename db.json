@@ -29,6 +29,12 @@
       "fullName": "Amit Thakur",
       "email": "amit@gmail.com",
       "password": "Amit@123"
+    },
+    {
+      "id": "682a",
+      "fullName": "Vidya Bhandari",
+      "email": "vidyabhandari@gmail.com",
+      "password": "Aishu@2903"
     }
   ],
   "questions": [
@@ -244,17 +250,6 @@
         "'state' is immutable, 'props' are mutable."
       ],
       "answer": "'state' is managed within the component, 'props' are passed from parent to child."
-    },
-    {
-      "id": "6c3a",
-      "question": "What does HTML stand for?",
-      "options": [
-        "HyperText Markup Language",
-        "Home Tool Markup Language",
-        "Hyperlink and Text Markup Language",
-        "HyperText Machine Language"
-      ],
-      "answer": "HyperText Markup Language"
     }
   ],
   "userTests": [
