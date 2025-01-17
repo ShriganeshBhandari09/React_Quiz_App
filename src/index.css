@@ -151,3 +151,19 @@ button:focus-visible {
     background-position: 100% 0, 100% 100%, 0 100%, 0 0;
   }
 }
+
+.progress {
+  width: 100.8px;
+  height: 16.8px;
+  margin: 0 auto;
+  -webkit-mask: radial-gradient(circle closest-side, #fbd300 94%, #0000)
+    left/20% 100%;
+  background: linear-gradient(#fbd300 0 0) left/0% 100% no-repeat #dbdcef;
+  animation: progress-c3ir73 2s infinite steps(6);
+}
+
+@keyframes progress-c3ir73 {
+  100% {
+    background-size: 120% 100%;
+  }
+}

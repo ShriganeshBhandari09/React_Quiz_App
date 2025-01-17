@@ -59,7 +59,10 @@ const Leaderboard = () => {
             transform: "translate(-50%, -50%)",
           }}
         >
-          <div className="shapes"></div>
+          <div className="progress"></div>
+          <h2 style={{ textAlign: "center", marginTop: "10px" }}>
+            Loading the Leaderboard....
+          </h2>
         </div>
       ) : (
         <div className={styles.container}>

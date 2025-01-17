@@ -211,16 +211,19 @@ const QuizPage = () => {
       <Navbar />
       <>
         {loading ? (
-          <div
-            style={{
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-            }}
-          >
-            <div className="shapes"></div>
-          </div>
+          <>
+            <div
+              style={{
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+              }}
+            >
+              <div className="progress"></div>
+              <h2 style={{ textAlign: "center", marginTop:"10px" }}>Loading the Questions....</h2>
+            </div>
+          </>
         ) : (
           <main className={styles.container}>
             {quizPage && (
