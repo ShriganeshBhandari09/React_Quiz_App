@@ -1,4 +1,4 @@
-import { all, fork, put, call, takeLatest } from "redux-saga/effects";
+import { all, fork, put, call, takeLatest, delay } from "redux-saga/effects";
 import http from "../../libraries/axios";
 import { ApiConstants } from "../../constants/ApiConstants";
 
@@ -12,6 +12,7 @@ function* fetchUsers() {
 }
 
 function* addUser(action) {
+  yield delay(5000);
   try {
     const response = yield call(
       http.post,

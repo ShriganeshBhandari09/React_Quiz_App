@@ -101,6 +101,7 @@ const Signup = () => {
               id="registerpassword"
               placeholder="Password"
               onChange={(e) => setPassword(e.target.value)}
+              autoComplete="true"
             />
             {errors.password && (
               <span style={{ color: "red" }}>{errors.password}</span>

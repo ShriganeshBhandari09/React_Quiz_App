@@ -13,6 +13,7 @@ import {
 import { TOTAL_QUESTIONS } from "../../config";
 const QuizPage = () => {
   const questions = useSelector((state) => state.question.questions);
+  const loading = useSelector((state) => state.question.loading);
   const userGivenTests = useSelector(
     (state) => state.userGivenTests.usersGivenTests
   );
@@ -62,9 +63,9 @@ const QuizPage = () => {
     }
   }, [questions]);
 
-  if (!questions || questions.length === 0) {
-    return <div className="loader"></div>;
-  }
+  // if (!questions || questions.length === 0) {
+  //   return <div className="shapes"></div>;
+  // }
 
   // const nextQuestion = () => {
   //   // if (!selectedOption) {
@@ -208,129 +209,156 @@ const QuizPage = () => {
   return (
     <section>
       <Navbar />
-      <main className={styles.container}>
-        {quizPage && (
-          <section
-            className={styles.container__quiz_question_section}
-            id="main-container"
+      <>
+        {loading ? (
+          <div
+            style={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+            }}
           >
-            <div className={styles.container__heading_wrapper}>
-              {displayQuestion === totalQuestions - 1 ? (
-                <h1 className={styles.container__heading} id="question-heading">
-                  Hey! this is the Last Question
-                </h1>
-              ) : (
-                <h1 className={styles.container__heading} id="question-heading">
-                  Question {displayQuestion + 1} of {totalQuestions}
-                </h1>
-              )}
-            </div>
-            <div className={styles.rangeslider} id="rangeSlider">
-              <div
-                className={styles.rangeSliderValue}
-                style={{
-                  width: `${
-                    initialSilderValue * rangeSlider +
-                    maxSliderValue / totalQuestions
-                  }%`,
-                }}
-                id="rangeSliderValue"
-              ></div>
-            </div>
-            <div className={styles.container__questions}>
-              <div className={styles.container__quesion_wrapper}>
-                <h2 className={styles.container__question} id="question">
-                  <span>{displayQuestion + 1}. </span>
-                  {questions[randomNumberArray[displayQuestion]]?.question}
-                </h2>
-                <p
-                  className={styles.question__description}
-                  id="question-description"
-                ></p>
-              </div>
-              <div className={styles.container__answers}>
-                {questions[randomNumberArray[displayQuestion]]?.options.map(
-                  (option, index) => (
-                    <div key={index} className={styles.input__container}>
-                      <input
-                        type="radio"
-                        id={`option-${index}`}
-                        value={option}
-                        checked={selectedOption === option}
-                        onChange={(e) => setSelectedOption(e.target.value)}
-                        name={`question-${displayQuestion}`}
-                      />
-                      <label htmlFor={`option-${index}`} id={`label-${index}`}>
-                        <span>{index + 1}. </span>
-                        {option}
-                      </label>
-                    </div>
-                  )
-                )}
-              </div>
-            </div>
-            <div className={styles.container__buttons}>
-              <button
-                onClick={previousQuestion}
-                id="previous-btn"
-                className={`${styles.secondary_btn} ${styles.previous_btn} ${
-                  displayQuestion < 1 && styles.hidden
-                }`}
-                type="button"
+            <div className="shapes"></div>
+          </div>
+        ) : (
+          <main className={styles.container}>
+            {quizPage && (
+              <section
+                className={styles.container__quiz_question_section}
+                id="main-container"
               >
-                <HiArrowSmLeft />
-                Previous
-              </button>
-              <button
-                onClick={handleSubmit}
-                id="forward-btn"
-                className={styles.secondary_btn}
-                type="button"
-              >
-                {displayQuestion === totalQuestions - 1 ? "Submit" : "Next"}
-                <HiArrowSmRight />
-              </button>
-            </div>
-          </section>
-        )}
-        {showResults && (
-          <section className="container__score-section" id="score-container">
-            <div className={styles.display_question_answers_container}>
-              <h2 style={{ textAlign: "center" }}>{`${
-                loggedInUser[0].fullName
-              } scored ${marks} out of ${totalQuestions * 10}`}</h2>
-              <Link to="/leaderboard">
-                <h2
-                  className="score-link-redirect"
-                  style={{ textAlign: "center" }}
-                >
-                  View you Rank on Leaderboard
-                </h2>
-              </Link>
-              {selectedAnswersArray.map((answer, index) => (
-                <div
-                  key={index}
-                  className={`${styles.question_answer_container} ${
-                    answer.selectedAnswer === answer.correctAnswer
-                      ? `${styles.question_container_right_answers}`
-                      : `${styles.question_container_wrong_answers}`
-                  }`}
-                >
-                  <h2 className="container__question">
-                    {index + 1}. {answer.question}
-                  </h2>
-                  <p className="container__selected-option">
-                    Selected Answer: {answer.selectedAnswer}
-                  </p>
-                  <p className="container__correct-answer">
-                    Correct Answer: {answer.correctAnswer}
-                  </p>
+                <div className={styles.container__heading_wrapper}>
+                  {displayQuestion === totalQuestions - 1 ? (
+                    <h1
+                      className={styles.container__heading}
+                      id="question-heading"
+                    >
+                      Hey! this is the Last Question
+                    </h1>
+                  ) : (
+                    <h1
+                      className={styles.container__heading}
+                      id="question-heading"
+                    >
+                      Question {displayQuestion + 1} of {totalQuestions}
+                    </h1>
+                  )}
                 </div>
-              ))}
-            </div>
-          </section>
+                <div className={styles.rangeslider} id="rangeSlider">
+                  <div
+                    className={styles.rangeSliderValue}
+                    style={{
+                      width: `${
+                        initialSilderValue * rangeSlider +
+                        maxSliderValue / totalQuestions
+                      }%`,
+                    }}
+                    id="rangeSliderValue"
+                  ></div>
+                </div>
+                <div className={styles.container__questions}>
+                  <div className={styles.container__quesion_wrapper}>
+                    <h2 className={styles.container__question} id="question">
+                      <span>{displayQuestion + 1}. </span>
+                      {questions[randomNumberArray[displayQuestion]]?.question}
+                    </h2>
+                    <p
+                      className={styles.question__description}
+                      id="question-description"
+                    ></p>
+                  </div>
+                  <div className={styles.container__answers}>
+                    {questions[randomNumberArray[displayQuestion]]?.options.map(
+                      (option, index) => (
+                        <div key={index} className={styles.input__container}>
+                          <input
+                            type="radio"
+                            id={`option-${index}`}
+                            value={option}
+                            checked={selectedOption === option}
+                            onChange={(e) => setSelectedOption(e.target.value)}
+                            name={`question-${displayQuestion}`}
+                          />
+                          <label
+                            htmlFor={`option-${index}`}
+                            id={`label-${index}`}
+                          >
+                            <span>{index + 1}. </span>
+                            {option}
+                          </label>
+                        </div>
+                      )
+                    )}
+                  </div>
+                </div>
+                <div className={styles.container__buttons}>
+                  <button
+                    onClick={previousQuestion}
+                    id="previous-btn"
+                    className={`${styles.secondary_btn} ${
+                      styles.previous_btn
+                    } ${displayQuestion < 1 && styles.hidden}`}
+                    type="button"
+                  >
+                    <HiArrowSmLeft />
+                    Previous
+                  </button>
+                  <button
+                    onClick={handleSubmit}
+                    id="forward-btn"
+                    className={styles.secondary_btn}
+                    type="button"
+                  >
+                    {displayQuestion === totalQuestions - 1 ? "Submit" : "Next"}
+                    <HiArrowSmRight />
+                  </button>
+                </div>
+              </section>
+            )}
+            {showResults && (
+              <section
+                className="container__score-section"
+                id="score-container"
+              >
+                <div className={styles.display_question_answers_container}>
+                  <h2 style={{ textAlign: "center" }}>{`${
+                    loggedInUser[0].fullName
+                  } scored ${marks} out of ${totalQuestions * 10}`}</h2>
+                  <Link to="/leaderboard">
+                    <h2
+                      className="score-link-redirect"
+                      style={{ textAlign: "center" }}
+                    >
+                      View you Rank on Leaderboard
+                    </h2>
+                  </Link>
+                  {selectedAnswersArray.map((answer, index) => (
+                    <div
+                      key={index}
+                      className={`${styles.question_answer_container} ${
+                        answer.selectedAnswer === answer.correctAnswer
+                          ? `${styles.question_container_right_answers}`
+                          : `${styles.question_container_wrong_answers}`
+                      }`}
+                    >
+                      <h2 className="container__question">
+                        {index + 1}. {answer.question}
+                      </h2>
+                      <p className="container__selected-option">
+                        Selected Answer: {answer.selectedAnswer}
+                      </p>
+                      <p className="container__correct-answer">
+                        Correct Answer: {answer.correctAnswer}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
+          </main>
         )}
-      </main>
+      </>
     </section>
   );
 };

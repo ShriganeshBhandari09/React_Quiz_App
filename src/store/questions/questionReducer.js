@@ -5,6 +5,8 @@ const initialState = {
 
 const questionReducer = (state = initialState, action) => {
   switch (action.type) {
+    case "FETCH_QUESTIONS_REQUEST":
+      return { ...state, loading: true };
     case "FETCH_QUESTIONS_SUCCESS":
       return { ...state, loading: false, questions: action.payload };
     case "ADD_QUESTION_SUCCESS":

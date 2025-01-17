@@ -1,8 +1,9 @@
-import { all, call, fork, put, takeLatest } from "redux-saga/effects";
+import { all, call, delay, fork, put, takeLatest } from "redux-saga/effects";
 import http from "../../libraries/axios";
 import { ApiConstants } from "../../constants/ApiConstants";
 
 function* fetchQuestions() {
+  yield delay(5000);
   try {
     const response = yield call(http.get, `${ApiConstants.questionAPI}`);
     yield put({ type: "FETCH_QUESTIONS_SUCCESS", payload: response.data });
