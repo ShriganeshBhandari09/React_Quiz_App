@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { fetchUsersRequest } from "../../../store/users/userActions";
 import { assets } from "../../../assets/assets";
 import styles from "../login.module.css";
+import { FaEye } from "react-icons/fa6";
+import { FaEyeSlash } from "react-icons/fa6";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -11,12 +13,26 @@ const Login = () => {
   const loading = useSelector((state) => state.user.loading);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordToggle, setPasswordToggle] = useState(false);
   const navigate = useNavigate();
-  console.log(loading);
+  const [errors, setErrors] = useState({});
 
   useEffect(() => {
     dispatch(fetchUsersRequest());
   }, [dispatch]);
+
+  const validate = () => {
+    const errors = {};
+
+    if (!email) {
+      errors.email = "Please enter email";
+    }
+    if (!password) {
+      errors.password = "Please Enter Password";
+    }
+    setErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,18 +47,20 @@ const Login = () => {
       return;
     }
 
-    const loggedInUser = users.find(
-      (user) => user.email === email && user.password === password
-    );
+    if (validate()) {
+      const loggedInUser = users.find(
+        (user) => user.email === email && user.password === password
+      );
 
-    if (loggedInUser) {
-      localStorage.setItem("loggedInUser", JSON.stringify([loggedInUser]));
-      navigate("/dashboard");
-      alert("Login Successfull");
-      return;
-    } else {
-      alert("Incorrect email or password");
-      return;
+      if (loggedInUser) {
+        localStorage.setItem("loggedInUser", JSON.stringify([loggedInUser]));
+        navigate("/dashboard");
+        alert("Login Successfull");
+        return;
+      } else {
+        alert("Incorrect email or password");
+        return;
+      }
     }
   };
   return (
@@ -79,23 +97,43 @@ const Login = () => {
                   name="email"
                   id="loginemail"
                   placeholder="Email"
-                  required
                   autoComplete="off"
                   onChange={(e) => setEmail(e.target.value)}
                 />
+                {errors.email && (
+                  <span style={{ color: "red" }}>{errors.email}</span>
+                )}
               </div>
               <div className={styles.auth__form_div}>
                 <label className="auth__form_label">Password*</label>
-                <input
+                <div
                   className={styles.auth__form_input}
-                  type="password"
-                  name="password"
-                  id="loginpassword"
-                  placeholder="Password"
-                  required
-                  autoComplete="off"
-                  onChange={(e) => setPassword(e.target.value)}
-                />
+                  style={{ display: "flex" }}
+                >
+                  <input
+                    className={styles.auth__form_input_password}
+                    type={passwordToggle ? "text" : "password"}
+                    name="password"
+                    id="loginpassword"
+                    placeholder="Password"
+                    autoComplete="off"
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                  {passwordToggle ? (
+                    <FaEyeSlash
+                      onClick={() => setPasswordToggle(!passwordToggle)}
+                      style={{ cursor: "pointer" }}
+                    />
+                  ) : (
+                    <FaEye
+                      onClick={() => setPasswordToggle(!passwordToggle)}
+                      style={{ cursor: "pointer" }}
+                    />
+                  )}
+                </div>
+                {errors.password && (
+                  <span style={{ color: "red" }}>{errors.password}</span>
+                )}
               </div>
               <button
                 className={`${styles.primary_btn} ${styles.login_btn}`}

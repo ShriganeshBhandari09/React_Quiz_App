@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import styles from "../login.module.css";
 import { addUserRequest } from "../../../store/users/userActions";
 import { assets } from "../../../assets/assets";
+import { FaEye } from "react-icons/fa6";
+import { FaEyeSlash } from "react-icons/fa6";
 
 const Signup = () => {
   const dispatch = useDispatch();
@@ -14,6 +16,7 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [checkboxSelected, setcheckboxSelected] = useState(false);
+  const [passwordToggle, setPasswordToggle] = useState(false);
   const [errors, setErrors] = useState({});
 
   const navigate = useNavigate();
@@ -94,15 +97,32 @@ const Signup = () => {
           </div>
           <div className={styles.auth__form_div}>
             <label className="auth__form_label">Password*</label>
-            <input
+            <div
               className={styles.auth__form_input}
-              type="password"
-              name="password"
-              id="registerpassword"
-              placeholder="Password"
-              onChange={(e) => setPassword(e.target.value)}
-              autoComplete="true"
-            />
+              style={{ display: "flex" }}
+            >
+              <input
+                className={styles.auth__form_input_password}
+                type={passwordToggle ? "text" : "password"}
+                name="password"
+                id="loginpassword"
+                placeholder="Password"
+                required
+                autoComplete="off"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              {passwordToggle ? (
+                <FaEyeSlash
+                  onClick={() => setPasswordToggle(!passwordToggle)}
+                  style={{ cursor: "pointer" }}
+                />
+              ) : (
+                <FaEye
+                  onClick={() => setPasswordToggle(!passwordToggle)}
+                  style={{ cursor: "pointer" }}
+                />
+              )}
+            </div>
             {errors.password && (
               <span style={{ color: "red" }}>{errors.password}</span>
             )}
@@ -116,9 +136,7 @@ const Signup = () => {
             />
             <label>
               I accept <span> </span>
-              <a href="terms-and-conditions.html" target="_blank">
-                Terms and Conditions
-              </a>
+              <Link to="/terms-and-conditions">Terms and Conditions</Link>
             </label>
           </div>
           <button

@@ -86,6 +86,15 @@ img {
   /* color: #8e8e93; */
 }
 
+.auth__form_input_password {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.2px;
+  border: none;
+  outline: none;
+  width: 100%;
+}
+
 .login_btn {
   border-radius: 100px;
   padding: 12px 24px;

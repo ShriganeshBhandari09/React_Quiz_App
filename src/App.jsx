@@ -15,6 +15,7 @@ import PageNotFound from "./pages/PageNotFound";
 import ProtectedRoutes from "./routes/ProtectedRoutes";
 import PublicRoutes from "./routes/PublicRoutes";
 import { ToastContainer } from "react-toastify";
+import TermsAndConditions from "./pages/TermsAndConditions";
 
 // function PrivateRoute () {
 //   if (isAuthenticated) {
@@ -34,6 +35,10 @@ function App() {
         <Route element={<PublicRoutes />}>
           <Route path={"/"} element={<LoginPage />} />
           <Route path={"/signup"} element={<SignupPage />} />
+          <Route
+            path={"/terms-and-conditions"}
+            element={<TermsAndConditions />}
+          />
         </Route>
         <Route path="/" element={<ProtectedRoutes />}>
           <Route path="/dashboard" element={<DashboardPage />} />
