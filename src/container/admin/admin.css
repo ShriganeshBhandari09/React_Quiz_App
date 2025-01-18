@@ -284,6 +284,9 @@ td {
 
 .add-question-container {
   width: 40%;
+  scrollbar-width: none;
+  height: 80%;
+  overflow: scroll;
 }
 
 .delete-modal-container {

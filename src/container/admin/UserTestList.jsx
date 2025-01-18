@@ -40,9 +40,7 @@ const UserTestList = () => {
           </h1>
           <div className="users-test-section">
             <div className="users-test-data">
-              <span id="test-number">
-                {`Test No. ${userGivenTests[userIndex]?.tests[index].testNo}`}
-              </span>
+              <span id="test-number">{`Test No. ${Number(index) + 1}`}</span>
               <span id="test-score">{`Score: ${userGivenTests[userIndex]?.tests[index].marks}`}</span>
               <span id="test-date">{`Test Date: ${userGivenTests[userIndex].tests[index].date}`}</span>
             </div>

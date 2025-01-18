@@ -12,7 +12,7 @@ function* fetchUsers() {
 }
 
 function* addUser(action) {
-  yield delay(5000);
+  // yield delay(5000);
   try {
     const response = yield call(
       http.post,

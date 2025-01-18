@@ -20,9 +20,7 @@ const Users = () => {
     <div>
       <AdminNavbar sidebar={sidebar} setSideBar={setSideBar} />
       <main className="main-container">
-      {sidebar && (
-          <SideBar/>
-        )}
+        {sidebar && <SideBar />}
         <section className="users-section">
           <h1 className="users-section__header">Users</h1>
           <table>
@@ -32,7 +30,7 @@ const Users = () => {
                 <th className="table-header">Name</th>
                 <th className="table-header">Email</th>
                 <th className="table-header">No. of Test Given</th>
-                <th className="table-header">Score</th>
+                <th className="table-header">Latest Score</th>
                 <th className="table-header">Action</th>
               </tr>
             </thead>
@@ -42,7 +40,7 @@ const Users = () => {
                   <td>{index + 1}</td>
                   <td>{user.fullName}</td>
                   <td>{user.email}</td>
-                  <td>{user.noOfTimeTestGiven}</td>
+                  <td>{user.tests.length}</td>
                   <td>{user.marks}</td>
                   <td className="table-button">
                     <div className="table-button-div">

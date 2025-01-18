@@ -38,7 +38,6 @@ const QuizPage = () => {
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [selectedAnswersArray, setSelectedAnswersArray] = useState([]);
   const [tests, setTests] = useState([]);
-  const [noOfTimeTestGiven, setNoOfTimeTestGiven] = useState(1);
 
   useEffect(() => {
     dispatch(fetchQuestionsRequest());
@@ -146,6 +145,7 @@ const QuizPage = () => {
           selectedAnswer: selectedOption,
           correctAnswer: correctAnswer,
           options: questions[randomNumberArray[index]].options,
+          explanationText: questions[randomNumberArray[index]].explanationText,
         };
       }
     );
@@ -166,7 +166,6 @@ const QuizPage = () => {
     );
 
     const newTest = {
-      testNo: existingUser?.noOfTimeTestGiven + 1 || 1,
       selectedAnswers: tempSelectedAnswersArray,
       marks: tempMarks,
       date: `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`,
@@ -190,7 +189,6 @@ const QuizPage = () => {
           fullName: loggedInUser[0].fullName,
           email: loggedInEmail,
           marks: tempMarks,
-          noOfTimeTestGiven: noOfTimeTestGiven + 1,
           tests: newTests, // Include the current tests (if any)
         })
       );
@@ -202,7 +200,6 @@ const QuizPage = () => {
           fullName: loggedInUser[0].fullName,
           email: loggedInEmail,
           marks: tempMarks,
-          noOfTimeTestGiven: noOfTimeTestGiven,
           tests: updatedTests, // Include the current tests (if any)
         })
       );
@@ -274,7 +271,12 @@ const QuizPage = () => {
                     <p
                       className={styles.question__description}
                       id="question-description"
-                    ></p>
+                    >
+                      {
+                        questions[randomNumberArray[displayQuestion]]
+                          ?.supportingText
+                      }
+                    </p>
                   </div>
                   <div className={styles.container__answers}>
                     {questions[randomNumberArray[displayQuestion]]?.options.map(
@@ -358,6 +360,9 @@ const QuizPage = () => {
                       </p>
                       <p className="container__correct-answer">
                         Correct Answer: {answer.correctAnswer}
+                      </p>
+                      <p className="container__corrected-answer">
+                        Explanation Text: {answer.explanationText}
                       </p>
                     </div>
                   ))}

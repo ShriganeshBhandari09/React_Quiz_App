@@ -24,6 +24,9 @@ const ViewQuestionModal = ({ selectedQuestion, closeModal }) => {
           <h1 className="question" id="view-question">
             {selectedQuestion.question}
           </h1>
+          <h2 className="question" id="view-question">
+            Supporting Text: {selectedQuestion.supportingText}
+          </h2>
           <ol className="view-question-options">
             <li id="view-option-one">{selectedQuestion.options[0]}</li>
             <li id="view-option-two">{selectedQuestion.options[1]}</li>
@@ -34,6 +37,9 @@ const ViewQuestionModal = ({ selectedQuestion, closeModal }) => {
           <h2 id="view-correct-answer">
             Correct answer: {selectedQuestion.answer}
           </h2>
+          <h2 className="question" id="view-question">
+            Explanation Text: {selectedQuestion.explanationText}
+          </h2>
         </div>
       </div>
     </>
@@ -43,11 +49,13 @@ ViewQuestionModal.propTypes;
 
 const AddQuestionModal = ({ closeModal }) => {
   const [question, setQuestion] = useState("");
+  const [supportingText, setSupportingText] = useState("");
   const [optionOne, setOptionOne] = useState("");
   const [optionTwo, setOptionTwo] = useState("");
   const [optionThree, setOptionThree] = useState("");
   const [optionFour, setOptionFour] = useState("");
   const [answer, setAnswer] = useState("");
+  const [explanationText, setExplanationText] = useState("");
 
   const dispatch = useDispatch();
 
@@ -55,7 +63,15 @@ const AddQuestionModal = ({ closeModal }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addQuestionRequest({ question, options, answer }));
+    dispatch(
+      addQuestionRequest({
+        question,
+        supportingText,
+        options,
+        answer,
+        explanationText,
+      })
+    );
     closeModal();
     toast.success("Added Question Sucessfully");
   };
@@ -72,7 +88,7 @@ const AddQuestionModal = ({ closeModal }) => {
         </div>
         <form onSubmit={handleSubmit}>
           <div className="add-question-div">
-            <label htmlFor="question">Question</label>
+            <label htmlFor="question-name">Question</label>
             <input
               type="text"
               name="question"
@@ -80,6 +96,17 @@ const AddQuestionModal = ({ closeModal }) => {
               id="question-name"
               value={question}
               onChange={(e) => setQuestion(e.target.value)}
+            />
+          </div>
+          <div className="add-question-div">
+            <label htmlFor="supporting-text">Supporting Text</label>
+            <input
+              type="text"
+              name="supporting-text"
+              placeholder="Supporting Text"
+              id="supporting-text"
+              value={supportingText}
+              onChange={(e) => setSupportingText(e.target.value)}
             />
           </div>
           <div className="add-question-div">
@@ -94,7 +121,7 @@ const AddQuestionModal = ({ closeModal }) => {
             />
           </div>
           <div className="add-question-div">
-            <label htmlFor="option-one">Option 2</label>
+            <label htmlFor="option-two">Option 2</label>
             <input
               type="text"
               name="option-two"
@@ -105,7 +132,7 @@ const AddQuestionModal = ({ closeModal }) => {
             />
           </div>
           <div className="add-question-div">
-            <label htmlFor="option-one">Option 3</label>
+            <label htmlFor="option-three">Option 3</label>
             <input
               type="text"
               name="option-three"
@@ -116,7 +143,7 @@ const AddQuestionModal = ({ closeModal }) => {
             />
           </div>
           <div className="add-question-div">
-            <label htmlFor="option-one">Option 4</label>
+            <label htmlFor="option-four">Option 4</label>
             <input
               type="text"
               name="option-four"
@@ -141,6 +168,17 @@ const AddQuestionModal = ({ closeModal }) => {
               <option value={optionFour}>{optionFour}</option>
             </select>
           </div>
+          <div className="add-question-div">
+            <label htmlFor="explanation-text">Explanation Text</label>
+            <input
+              type="text"
+              name="explanation-text"
+              placeholder="Explanation Text"
+              id="explanation-text"
+              value={explanationText}
+              onChange={(e) => setExplanationText(e.target.value)}
+            />
+          </div>
           <button className="primary-btn" type="submit">
             Add Question
           </button>
@@ -154,11 +192,17 @@ AddQuestionModal.propTypes;
 
 const UpdateQuestionModal = ({ selectedQuestion, closeModal }) => {
   const [question, setQuestion] = useState(selectedQuestion.question);
+  const [supportingText, setSupportingText] = useState(
+    selectedQuestion.supportingText
+  );
   const [optionOne, setOptionOne] = useState(selectedQuestion.options[0]);
   const [optionTwo, setOptionTwo] = useState(selectedQuestion.options[1]);
   const [optionThree, setOptionThree] = useState(selectedQuestion.options[2]);
   const [optionFour, setOptionFour] = useState(selectedQuestion.options[3]);
   const [answer, setAnswer] = useState(selectedQuestion.answer);
+  const [explanationText, setExplanationText] = useState(
+    selectedQuestion.explanationText
+  );
 
   const dispatch = useDispatch();
 
@@ -169,8 +213,10 @@ const UpdateQuestionModal = ({ selectedQuestion, closeModal }) => {
       updateQuestionRequest({
         id: selectedQuestion.id,
         question,
+        supportingText,
         options,
         answer,
+        explanationText,
       })
     );
     closeModal();
@@ -189,7 +235,7 @@ const UpdateQuestionModal = ({ selectedQuestion, closeModal }) => {
         </div>
         <form onSubmit={handleSubmit}>
           <div className="add-question-div">
-            <label htmlFor="question">Question</label>
+            <label htmlFor="question-name">Question</label>
             <input
               type="text"
               name="question"
@@ -197,6 +243,17 @@ const UpdateQuestionModal = ({ selectedQuestion, closeModal }) => {
               id="question-name"
               value={question}
               onChange={(e) => setQuestion(e.target.value)}
+            />
+          </div>
+          <div className="add-question-div">
+            <label htmlFor="supporting-text">Supporting Text</label>
+            <input
+              type="text"
+              name="supporting-text"
+              placeholder="Supporting Text"
+              id="supporting-text"
+              value={supportingText}
+              onChange={(e) => setSupportingText(e.target.value)}
             />
           </div>
           <div className="add-question-div">
@@ -211,7 +268,7 @@ const UpdateQuestionModal = ({ selectedQuestion, closeModal }) => {
             />
           </div>
           <div className="add-question-div">
-            <label htmlFor="option-one">Option 2</label>
+            <label htmlFor="option-two">Option 2</label>
             <input
               type="text"
               name="option-two"
@@ -222,7 +279,7 @@ const UpdateQuestionModal = ({ selectedQuestion, closeModal }) => {
             />
           </div>
           <div className="add-question-div">
-            <label htmlFor="option-one">Option 3</label>
+            <label htmlFor="option-three">Option 3</label>
             <input
               type="text"
               name="option-three"
@@ -233,7 +290,7 @@ const UpdateQuestionModal = ({ selectedQuestion, closeModal }) => {
             />
           </div>
           <div className="add-question-div">
-            <label htmlFor="option-one">Option 4</label>
+            <label htmlFor="option-four">Option 4</label>
             <input
               type="text"
               name="option-four"
@@ -257,6 +314,17 @@ const UpdateQuestionModal = ({ selectedQuestion, closeModal }) => {
               <option value={optionThree}>{optionThree}</option>
               <option value={optionFour}>{optionFour}</option>
             </select>
+          </div>
+          <div className="add-question-div">
+            <label htmlFor="explanation-text">Explanation Text</label>
+            <input
+              type="text"
+              name="explanation-text"
+              placeholder="Explanation"
+              id="explanation-text"
+              value={explanationText}
+              onChange={(e) => setExplanationText(e.target.value)}
+            />
           </div>
           <button className="primary-btn" type="submit">
             Update Question
