@@ -11,6 +11,7 @@ import {
   updateUserTestRequest,
 } from "../../store/usersGivenTests/userGivenTestsAction";
 import { TOTAL_QUESTIONS } from "../../config";
+import { toast } from "react-toastify";
 const QuizPage = () => {
   const questions = useSelector((state) => state.question.questions);
   const loading = useSelector((state) => state.question.loading);
@@ -99,7 +100,7 @@ const QuizPage = () => {
 
   const handleSubmit = () => {
     if (!selectedOption) {
-      alert("Please Select an Answer");
+      toast.error("Please Select Answer");
       return;
     }
 
@@ -119,6 +120,8 @@ const QuizPage = () => {
     } else {
       setDisplayQuestion(displayQuestion + 1);
       setRangeSlider(rangeSlider + 1);
+      const nextSelectedOption = selectedOptionsArray[displayQuestion + 1];
+      setSelectedOption(nextSelectedOption || "");
     }
   };
 
@@ -221,7 +224,9 @@ const QuizPage = () => {
               }}
             >
               <div className="progress"></div>
-              <h2 style={{ textAlign: "center", marginTop:"10px" }}>Loading the Questions....</h2>
+              <h2 style={{ textAlign: "center", marginTop: "10px" }}>
+                Loading the Questions....
+              </h2>
             </div>
           </>
         ) : (

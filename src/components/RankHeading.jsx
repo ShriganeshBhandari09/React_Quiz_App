@@ -4,7 +4,6 @@ import Confetti from "react-confetti";
 
 const RankHeading = ({ currentUserIndex, suffix }) => {
   const { width, height } = useWindowSize();
-  console.log(width)
   return (
     <>
       <h1 className={styles.rank_display} id="display-rank">
